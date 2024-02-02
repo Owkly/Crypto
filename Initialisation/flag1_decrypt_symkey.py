@@ -1,15 +1,15 @@
 import subprocess
 
 
-def decrypt(msg_enc, passphrase, cipher='aes-128-cbc'):
-    # openssl enc -d -base64 -aes-128-cbc -pbkdf2 -pass pass:"bar" -in foo
+def decrypt_skey(msg_enc, passphrase, cipher='aes-128-cbc'):
+    # Commande pour déchiffrer un message avec une clé symétrique : openssl enc -d -base64 -aes-128-cbc -pbkdf2 -pass pass:<mdp> -in <message chiffré>
     args = ['openssl', 'enc', '-d', '-base64', '-' + cipher, '-pbkdf2', '-pass', 'pass:' + passphrase]
 
-    # Si msg_enc est de type str, on est obligé de l'encoder en bytes pour pouvoir l'envoyer dans le pipeline vers openssl
+    # Si msg_enc est de type str
     if isinstance(msg_enc, str):
         msg_enc = msg_enc.encode('utf-8')
         
-    # Exécute la commande openssl
+    # Exécute la commande pour déchiffrer le message
     result = subprocess.run(args, input=msg_enc,
                             stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
@@ -21,11 +21,15 @@ def decrypt(msg_enc, passphrase, cipher='aes-128-cbc'):
     return result.stdout.decode()
 
 
+# Utilisation de la fonction
+# Message chiffré
+encrypted = """U2FsdGVkX1/51wqD7PnMSuRkwL8czQ1S/AznUxY9Z+K2tN2o5LBv1C2cM2fDGGD9
+hQym6B/W3VH0TNEn7dU2Xg=="""
+# clé symétrique
+mdp = "ISECR0XX"
+
 try:
-    encrypted = """U2FsdGVkX1/GwTarSAt7jGSVkwJ42JirfJJ9livrJM6YdVipNT0DBla0CxpIFPoc
-cxFaNUXFfOyMmEc6qdoELw=="""
-    key = "ISECR0XX"
-    decrypted = decrypt(encrypted, key)
+    decrypted = decrypt_skey(encrypted, mdp)
     print("Message déchiffré:", decrypted)
 except Exception as e:
     print("Une erreur s'est produite lors du déchiffrement:", e)
