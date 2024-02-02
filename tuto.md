@@ -199,13 +199,8 @@ Vous êtes invité à l'adapter à tous vos besoins.
 ```bash
 >>> lire chiffrement symétrique
 ```
+[security engine] power.on:136:1|40294b7ff0ae55ea647d882de452b3de93b5226d6eff895f7abc1abcba5b89df
 
-```
-CHIFFREMENT SYMÉTRIQUE
-======================
-
-L'essentiel des tâches de chiffrement peut être réalisé avec la
-bibliothèque OpenSSL (la version 1.0 est requise au minimum).
 
 La plupart du temps, les utilisateurs d'UGLIX chiffrent leurs fichiers
 avec un mécanisme à clef secrète et en utilisant un mot de passe.
@@ -435,8 +430,56 @@ def encrypt(plaintext, passphrase, cipher='aes-128-cbc'):
 # - etc.
 ```
 
+## Rapport d'activité
 
+```bash
+>>> lire rapport d'activité
+```
+```
+COMMENT FUIR UNE FLOTTE DE DRONES TUEURS ?
+==========================================
+M. Latapy, C. Magnien, L. Tabourier (équipe ComplexNetworks, 2022)
 
+Résumé opérationnel
+-------------------
+- Face à des drones qui utilisent des algorithmes simples, 
+  la plupart des fuyards inexpérimentés sont rattrapés
+- La compréhension des algorithmes utilisés par les drones 
+  augmente les chances de survie
+- Un entrainement intensif dans une simulation que nous avons
+  construite permet une survie avec probabilité proche de 
+                           [--------REDACTED--------]
+
+Remerciements
+-------------
+Ces travaux ont reçu le soutien financier (défiscalisé) des entreprises 
+                           [--------REDACTED--------]
+leaders mondiaux de la production de drones militarisés.
+
+[vous sautez une dizaine de pages de blabla]
+
+Retro-conception des algorithmes des drones
+-------------------------------------------
+- Les drones peuvent aller tout droit et tourner à 90°
+- Ils ne peuvent pas faire demi-tour
+                           [--------REDACTED--------]
+- Les drones visent un emplacement donné, et quand ils ont un
+  choix à effectuer, ils minimisent la distance euclidienne
+- Les drones de type B se dirigent vers la cible
+- Les drones de type P se dirigent 4 intervalles DEVANT la cible
+- Les drones de type C visent la cible, sauf si celle-ci est proche. Alors
+                           [--------REDACTED--------]
+- Les drones de type K implantent l'algorithme suivant: 
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+- Nous n'avons pas réussi à confirmer l'existence de drones de type
+                           [--------REDACTED--------]
+
+[...]
+
+On ne sait jamais, ça pourrait être utile dans le futur proche.
+```
 
 
 
@@ -538,7 +581,7 @@ ba8d3381-a52f-4bab-bd83-d8c5a5d22227
 ```
 
 ```bash
-register:136:1|99b75790fbdbdd3d6aac5199f666744ad95939df184fe9d9bae148672833729d
+[security engine] register:136:1|99b75790fbdbdd3d6aac5199f666744ad95939df184fe9d9bae148672833729d
 ```
 
 
@@ -561,7 +604,7 @@ mwIDAQAB
 ```
 
 ```bash
-pki.tutorial:136:1|78d578987ec1b855d24acd949d3e539c0e014982e4050cfb0add6e9dea3e40ce
+[security engine]  pki.tutorial:136:1|78d578987ec1b855d24acd949d3e539c0e014982e4050cfb0add6e9dea3e40ce
 ```
 
 
@@ -611,8 +654,19 @@ U8Xq2l3Bvjiy3qm5qZWTp8/x11G1ND+VDL9sJ5rS+NySq1OferTJC5GbNUDPuUzM
 ```
 
 ```bash
-pki.upload:136:1|63ce4e0e806c62dbd452054e03666ddb18cfa88833ef4950701dab7cb0fb0fb8
+[security engine] pki.upload:136:1|63ce4e0e806c62dbd452054e03666ddb18cfa88833ef4950701dab7cb0fb0fb8
 ```
 
 flag 4 :
 
+```bash
+SHA2-256(stdin)= 8d6d32705060bc1014a674e7ee8582e2daa9c77505a7f1b4c5ddab5ec5ff21ed7436bd9f0802da51525d4bc3014bec4f65006da627bcdc46c5d67bbf568182a97ca00185fc86dc2fdbd59da9ff53649c657216c23ae1f26cb5606b076b9b57b1b883ae95d34e0553445424ffef52185df4ffc1e9481075dd4247ce89b1acb5613fb13cce9650d6468979bb4c596bab3db64a63f44a41f3db5da05d63fa7cd5bad13dc54005cc6d977c324b8960a80f7538a91bfe2f632a7a2dcc56ea6942368fdee3a5e50fd94d9cfa6c5e2e797440dfd447f649778827712a7a971d195fd7be1b6b63ff95c77a665547162b09655f2137bc76b4cd1a50dd83b4ac2366ee6342
+```
+
+```bash
+SHA2-256(stdin)= d58892b2769beaa330b7e7ac442b5064806ed8b8b6871f1fba69e37687f6afffddbd3939bad1600f2a80caf4959e009d6cee189d514ff1fc2e36b681c3f8d1d56a3263bbd2ce1d9a30e2c096c1fb341b4c4ff8f044551016c08cdee6ce9b755e48aee78299d6e10658346d366ff804378ffa628e040aefd8511082f51ccfa9cc01dfa785913962fb5d9f4d43379686263f1219f51e0af3a22b6a888604d2b5db0c6978b6e3356f8bf6134f3d93c33b2c52f10fb2eb84e8e66a32ba6e5d78a7100571996522297e9fb79f123aa8a7b5df49f5ce27f66686801d1397836291b0bcf39c6a3d3dac0cd80047d96f751611016a1f770c705554c8c57f0d2ccdb8c109
+```
+
+```bash
+[security engine] power.on:136:1|40294b7ff0ae55ea647d882de452b3de93b5226d6eff895f7abc1abcba5b89df
+```

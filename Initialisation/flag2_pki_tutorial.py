@@ -5,10 +5,10 @@ class OpensslError(Exception):
 
 
 def encrypt_pkey(msg, publickey):
-	# Commande pour chiffrer un message avec la clé publique : openssl pkeyutl -encrypt -pubin -inkey <fichier contenant la pkey>
+	# Commande pour chiffrer un message avec la clé publique : openssl pkeyutl -encrypt -hexdump -pubin -inkey <fichier contenant la pkey>
     args = ['openssl', 'pkeyutl', '-encrypt', '-pubin', '-inkey', publickey]
 
-    # Vérifier si msg est de type str
+    # Si le message est une chaîne de caractères, le convertir en utf-8
     if isinstance(msg, str):
         msg = msg.encode('utf-8')
     

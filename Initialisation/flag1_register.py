@@ -5,7 +5,7 @@ def decrypt_skey(msg_enc, passphrase, cipher='aes-128-cbc'):
     # Commande pour déchiffrer un message avec une clé symétrique : openssl enc -d -base64 -aes-128-cbc -pbkdf2 -pass pass:<mdp> -in <message chiffré>
     args = ['openssl', 'enc', '-d', '-base64', '-' + cipher, '-pbkdf2', '-pass', 'pass:' + passphrase]
 
-    # Si msg_enc est de type str
+    # Si le message est une chaîne de caractères, le convertir en utf-8
     if isinstance(msg_enc, str):
         msg_enc = msg_enc.encode('utf-8')
         
