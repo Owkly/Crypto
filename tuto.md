@@ -7,7 +7,7 @@ telnet m1.tme-crypto.fr 1337
 
 ## TOME I
 
-```bash
+```
 >>> lire chaîne de caractères
 ```
 
@@ -143,7 +143,7 @@ C :      "char" = byte
 
 ## TOME II
 
-```bash
+```
 >>> lire chiffrement symétrique
 ```
 
@@ -196,50 +196,11 @@ Vous êtes invité à l'adapter à tous vos besoins.
 
 ## Tome III
 
-```bash
->>> lire chiffrement symétrique
 ```
-[security engine] power.on:136:1|40294b7ff0ae55ea647d882de452b3de93b5226d6eff895f7abc1abcba5b89df
-
-
-La plupart du temps, les utilisateurs d'UGLIX chiffrent leurs fichiers
-avec un mécanisme à clef secrète et en utilisant un mot de passe.
-OpenSSL se débrouille pour convertir ce mot de passe en une clef
-secrète et un vecteur d'initialisation. De l'aléa est généralement
-introduit dans ce processus.
-
-Pour augmenter la portabilité, les utilisateurs d'UGLIX stockent
-généralement les fichiers chiffrés en les encodant en base64.
-
-Enfin, par défaut, les utilisateurs d'UGLIX sont invités à utiliser
-l'AES-128 en mode CBC pour chiffrer leurs données.
-
-Vous êtes invités à vous reporter à la documentation plus détaillée de
-OpenSSL, en particulier en exécutant "man openssl", "openssl enc
-help", ou bien en consultant la page du mode d'emploi de openssl
-dédiée au chiffrement symétrique ("man openssl-enc").
-
-Déchiffrer le fichier "foo" en utilisant le mot de passe "bar" peut
-logiquement s'accomplir par la commande :
-
-openssl enc -d -base64 -aes-128-cbc -pbkdf2 -pass pass:"bar" -in foo
-
-Il est très pratique de pouvoir invoquer openssl depuis des programmes.
-Pour cette raison, un autre script open-source est mis à la disposition
-de la communauté. On le trouve dans le guide intitulé "script d'exemple".
-
-Vous êtes invité à l'adapter à tous vos besoins.
-
-    ⚠      Il existe plusieurs versions de OpenSSL. Ce serveur UGLIX utilise
-   ⚠ ⚠     "OpenSSL 1.1.1d  10 Sep 2019". N'hésitez pas à vérifier avec la 
-  ⚠ | ⚠    commande "openssl version". Il FAUT une version supérieure à 1.1.1 !
- ⚠  o  ⚠   Si vous avez la 1.1.0 (ou plus ancienne), l'option -pbkdf2 ne sera
-⚠⚠⚠⚠⚠⚠⚠⚠⚠  pas reconnue.
-    |      
-    |      Attention, sur les versions récentes de MacOS, "openssl" est en fait
-    |      LibreSSL (un fork). Et il est partiellement incompatible !
-
 >>> lire tome III
+```
+
+```
 GÉNÉRATION D'UNE PAIRE DE CLEFS
 ===============================
 
@@ -262,12 +223,11 @@ Une commande permet d'extraire la clef publique uniquement, pour la
 communiquer à des tiers : 
 
     openssl pkey -in <fichier contenant la clef secrète> -pubout
-
 ```
 
 ## Tome IV
 
-```bash 
+```
 >>> lire chiffrement à clef publique
 ```
 
@@ -302,7 +262,7 @@ retirer l'option  "-pubin")
 
 ## Tome V
 
-```bash
+```
 >>> lire signature
 ```
 ```
@@ -369,12 +329,11 @@ par exemple avec la fonction "subprocess.run()" de la librairie standard de pyth
 
 ## Tome VI
 
-```bash
+```
 >>> lire sript d'exemple
 ```
 
-```
->>> lire sript d'exemple
+```py
 import subprocess
 
 # ce script suppose qu'il a affaire à OpenSSL v1.1.1
@@ -432,7 +391,7 @@ def encrypt(plaintext, passphrase, cipher='aes-128-cbc'):
 
 ## Rapport d'activité
 
-```bash
+```
 >>> lire rapport d'activité
 ```
 ```
@@ -511,21 +470,7 @@ On ne sait jamais, ça pourrait être utile dans le futur proche.
 
 # Commandes
 
-## Asymétrique : chiffrement avec clé publique et déchiffrement avec clé privée
-
-### Chiffrement avec clé publique
-
-```bash
-openssl pkeyutl -encrypt -hexdump -pubin -inkey <clef publique> -in <message en clair> -out <le message chiffré>
-```
-
-### Déchiffrement avec clé privé
-
-```bash
-openssl pkeyutl -decrypt -hexdump -inkey <clef privée> -in <message chiffré> -out <message déchiffré>
-```
-
-## Symétrique : chiffrement avec clé symétrique et déchiffrement avec clé symétrique
+## Symétrique : chiffrement déchiffrement avec clé symétrique
 
 ### Déchiffrement avec clé symétrique
 
@@ -541,9 +486,27 @@ openssl enc -aes-128-cbc -pbkdf2 -salt -base64 -pass pass:"bar" -in <fichier à 
 
 ## Génération de paire clé (privé/publique)
 
+privée:
 ```bash
-openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048
-openssl pkey -in <ficher contenant la clé privée> -pubout
+openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:1024 # ou autre taille de clé ici 1024 bits
+```
+publique:
+```bash
+openssl pkey -in <fichier contenant la clef secrète> -pubout
+```
+
+## Asymétrique : chiffrement avec clé publique et déchiffrement avec clé privée
+
+### Chiffrement avec clé publique
+
+```bash
+openssl pkeyutl -encrypt -hexdump -pubin -inkey <clef publique> -in <message en clair> -out <le message chiffré>
+```
+
+### Déchiffrement avec clé privé
+
+```bash
+openssl pkeyutl -decrypt -hexdump -inkey <clef privée> -in <message chiffré> -out <message déchiffré>
 ```
 
 
@@ -565,108 +528,3 @@ openssl dgst -sha256 -verify public.key.pem -signature <fichier contenant le mes
 
 
 
-# Informations
-
-flag 1 :
-
-```bash
-POST-IT PASSWORD: ISECR0XX
-
-U2FsdGVkX1/51wqD7PnMSuRkwL8czQ1S/AznUxY9Z+K2tN2o5LBv1C2cM2fDGGD9
-hQym6B/W3VH0TNEn7dU2Xg==
-```
-
-```bash
-ba8d3381-a52f-4bab-bd83-d8c5a5d22227
-```
-
-```bash
-[security engine] register:136:1|99b75790fbdbdd3d6aac5199f666744ad95939df184fe9d9bae148672833729d
-```
-
-
-flag 2 :
-
-```bash
------BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvfOQoiH2KNKnDfJZmNAz
-bTEY6+2bTDvwrphV7hkuxzOxtVb1hxhgFLdqGmvSdRkeEJjICgSmysVHPbs5A2RT
-040U7EIXoxbd0/g1FpjDeEiSsxEZR2Lm/kCkUtU7F/UUUIz37DlxAiCvn5BvnYwf
-2NZ2j0hDGCBHMKZj/SJga1KRkghdOZvtS1YwoN1dZpovZpOYRhttk2Nflx9qpiR7
-vvW4FSNi8u63DbfaoKMDSWTXweJWLpEfoWfpLGLN16nCy0v7RvqfE0J2dtJLakAP
-lbsm8NI0epwTs9CZmBmCbw7a3XauHqwGXcQjYltF0zwzx3fpxWDqN7ayznDB8kNt
-mwIDAQAB
------END PUBLIC KEY-----
-```
-    
-```bash
-6f5ed31adbe2f44588c408df5d81cc873cf1cbfee9b63b33fe16575694d51f6f9f5abbdd2c41c0a084ebaf5b180d200b4ef5986bcdbfaba1187975e1890beb40cb8185e86c4949d34a782bd420a4be4fd5d2d0d8c2a24a545532bae60bc2a633a610af15a3bcc1723cc1c5b720746f03321ea75c44cdba95897eb44e6674d10659b8afd061684eaaa133572a953bb610a12c6a4e5f5eec46e35df22ef784da54bc28df2781004e1bb66ddc0ef6ac4adb1913e2cb2de50e9ba64c1bd434fa45a425a48303f510f6850d3f8969e4d8f0b6d6491ffd411c46a55fa8f0b31cb30b19444e4f998bd3ecc15fb7fe1a0c8056747ebcb8553ae7354e344d8bc6becc1c55
-```
-
-```bash
-[security engine]  pki.tutorial:136:1|78d578987ec1b855d24acd949d3e539c0e014982e4050cfb0add6e9dea3e40ce
-```
-
-
-flag 3 :
-
-```bash
------BEGIN PRIVATE KEY-----
-MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDmk+IkW+xOkSx2
-obubQHLTG+RFgduwSLPWXV2FDVcMus4Jbl6UuviigrzSo7ZQlx5Z2DjRmigOKgjD
-c2xVxVh7xdwwnmMrqB+RdZ/yTGLCMYoomuxGX7Oxo+gPc9DMDZHVPVxxMDCalX1i
-q4l6pcgO7pVwU9mKbkozJXusLBos1DbQXATz2nmGzihhmtp0psDFs7AdBguFMaY6
-H98CTtJTxeraXcG+OLLeqbmplZOnz/HXUbU0P5UMv2wnmtL43JKrU596tMkLkZs1
-QM+5TMzfBC3f62Xmmd334HI0kgTIoW7XqcM2CvRuwRMqUhu5HAaFl1tcLr3bcFlx
-jazwPaT3AgMBAAECggEAGhNkUi9RGIuDZ0EgGc0ejzBKzu+CHDwElnwFjPv2ubpQ
-fbGNIa3JW3uEhh+8iP2mEYwJ1O5llEB9sDjX6hVAzfKQ1bC7z16af1U5iunHi2WV
-1cS7brP4+uBp6IF0/faU5PQlBano/TplrShwCj5AUyv5G3RoGCcj3gfhphVwulvo
-iQpwAAIy1X2/sWtJrHA6gWoJw3sj6AZBXm0mMhvWWGYkP1G6gw4ItVp4LC72Wm49
-/b+4/saXhLDRSqvTFYZcy3SvX4PxwkGm02JFQw/EhcY1ZLKqrFwJAtDxA7t2vl5g
-P7WohGuN9NaWWfYsCrteos24Ii7sZ9m864zEfDOA2QKBgQDxlro0QGMpzhMm+sD3
-OqZWsT7b6OruEQRb5uYcAnzMBbpIvvBIX+E1pMGZ1YZa0jZOH99I7h5SWFecBW8k
-ix1s8iFJL3zA1xGbPAaDyBtravF27XDSWK8Sny6lW84pn7e646bJbHjPBXallsg5
-j8tSonmoeOJ3CrRS2GM5Rmt6WQKBgQD0VQG3eIPfWnuU/UKcyjIwlOUvM2+JdSNz
-KdhRTIjeWaJmNuxMAaq5Qx9+FdIZwFHU5zWsn6ybEWDI2IITnxuEGHGjpCsElq+G
-fe47hhSa7ZR/EC6S0/5U6SneyOTuCs5tx8SWRbVdZ+Pr2zFjtd2DZyvCVL7hW/bF
-QRR7ii6PzwKBgQCJXqx4Y5g/QCdRxcmNirLknppgjxtuzQxOeYekq6FsnWEkVjXo
-4WP8jbdsEqb344nveF4NaSCisAr483oULGpJ9ZAJvk/Qkzo2q7YEnvdAaCnu9upt
-IPJDw3HRotcigegGA8ZlyCEVjkS9uXQWjvYNAcftjPcwu0x3wwUAn1Mj2QKBgGpx
-SiEq4JCCc8pRlx6FO95MT5gDmXjRzlLSjQnGBO6RMB3FmaX3J/Az3NlqGjDbxwqw
-e4KrwV+A76AwKmLv8uXWXFOFJrSGDQvTeuD1pa5lCEdevlt6/ZbySSpkbM+DZ7EN
-0YgB8GQz6WiMAnVE+q7PWJH9p3a4QMZodsrnRSejAoGATboYM7LqBz78Ko9mtmwc
-YLTGvzMZJbmuDeOgmkPdYD6exju6HIOkDy1ZDPd4pUQS/R6x+HcDicABbVcsTPFS
-ddsKwb4i9dxfSd5i7ubPQLCC+hlfuwrKFv3bISOVcdUg2c8yBDnVzEoIDwA6g3ua
-Gsa0X9vt8yh420P0mkhkwtU=
------END PRIVATE KEY-----
-```
-    
-```bash
------BEGIN PUBLIC KEY-----
-MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5pPiJFvsTpEsdqG7m0By
-0xvkRYHbsEiz1l1dhQ1XDLrOCW5elLr4ooK80qO2UJceWdg40ZooDioIw3NsVcVY
-e8XcMJ5jK6gfkXWf8kxiwjGKKJrsRl+zsaPoD3PQzA2R1T1ccTAwmpV9YquJeqXI
-Du6VcFPZim5KMyV7rCwaLNQ20FwE89p5hs4oYZradKbAxbOwHQYLhTGmOh/fAk7S
-U8Xq2l3Bvjiy3qm5qZWTp8/x11G1ND+VDL9sJ5rS+NySq1OferTJC5GbNUDPuUzM
-3wQt3+tl5pnd9+ByNJIEyKFu16nDNgr0bsETKlIbuRwGhZdbXC6923BZcY2s8D2k
-9wIDAQAB
------END PUBLIC KEY-----
-```
-
-```bash
-[security engine] pki.upload:136:1|63ce4e0e806c62dbd452054e03666ddb18cfa88833ef4950701dab7cb0fb0fb8
-```
-
-flag 4 :
-
-```bash
-SHA2-256(stdin)= 8d6d32705060bc1014a674e7ee8582e2daa9c77505a7f1b4c5ddab5ec5ff21ed7436bd9f0802da51525d4bc3014bec4f65006da627bcdc46c5d67bbf568182a97ca00185fc86dc2fdbd59da9ff53649c657216c23ae1f26cb5606b076b9b57b1b883ae95d34e0553445424ffef52185df4ffc1e9481075dd4247ce89b1acb5613fb13cce9650d6468979bb4c596bab3db64a63f44a41f3db5da05d63fa7cd5bad13dc54005cc6d977c324b8960a80f7538a91bfe2f632a7a2dcc56ea6942368fdee3a5e50fd94d9cfa6c5e2e797440dfd447f649778827712a7a971d195fd7be1b6b63ff95c77a665547162b09655f2137bc76b4cd1a50dd83b4ac2366ee6342
-```
-
-```bash
-SHA2-256(stdin)= d58892b2769beaa330b7e7ac442b5064806ed8b8b6871f1fba69e37687f6afffddbd3939bad1600f2a80caf4959e009d6cee189d514ff1fc2e36b681c3f8d1d56a3263bbd2ce1d9a30e2c096c1fb341b4c4ff8f044551016c08cdee6ce9b755e48aee78299d6e10658346d366ff804378ffa628e040aefd8511082f51ccfa9cc01dfa785913962fb5d9f4d43379686263f1219f51e0af3a22b6a888604d2b5db0c6978b6e3356f8bf6134f3d93c33b2c52f10fb2eb84e8e66a32ba6e5d78a7100571996522297e9fb79f123aa8a7b5df49f5ce27f66686801d1397836291b0bcf39c6a3d3dac0cd80047d96f751611016a1f770c705554c8c57f0d2ccdb8c109
-```
-
-```bash
-[security engine] power.on:136:1|40294b7ff0ae55ea647d882de452b3de93b5226d6eff895f7abc1abcba5b89df
-```

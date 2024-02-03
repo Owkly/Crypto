@@ -1,8 +1,7 @@
 import subprocess
 
-
-def decrypt_skey(msg_enc, passphrase, cipher='aes-128-cbc'):
-    # Commande pour déchiffrer un message avec une clé symétrique : openssl enc -d -base64 -aes-128-cbc -pbkdf2 -pass pass:<mdp> -in <message chiffré>
+def decrypt_sym_key(msg_enc, passphrase, cipher='aes-128-cbc'):
+    # Commande pour déchiffrer un message avec une clé symétrique : openssl enc -d -base64 -aes-128-cbc -pbkdf2 -pass pass:<symkey> -in <message chiffré>
     args = ['openssl', 'enc', '-d', '-base64', '-' + cipher, '-pbkdf2', '-pass', 'pass:' + passphrase]
 
     # Si le message est une chaîne de caractères, le convertir en utf-8
@@ -20,18 +19,15 @@ def decrypt_skey(msg_enc, passphrase, cipher='aes-128-cbc'):
 
     return result.stdout.decode()
 
-
 # Utilisation de la fonction
-# Message chiffré
 encrypted = """U2FsdGVkX1/51wqD7PnMSuRkwL8czQ1S/AznUxY9Z+K2tN2o5LBv1C2cM2fDGGD9
-hQym6B/W3VH0TNEn7dU2Xg=="""
-# clé symétrique
-mdp = "ISECR0XX"
+hQym6B/W3VH0TNEn7dU2Xg=="""     # Message chiffré
+symkey = "ISECR0XX"             # clé symétrique
 
 try:
-    decrypted = decrypt_skey(encrypted, mdp)
+    decrypted = decrypt_sym_key(encrypted, symkey)
     print("Message déchiffré:", decrypted)
 except Exception as e:
-    print("Une erreur s'est produite lors du déchiffrement:", e)
+    print(e)
 
 
