@@ -7,19 +7,33 @@ from sympy import isprime,  primerange
  
 	But: produire (p, g) avec p premier (a <= p < b)
 			et g d'ordre q modulo p
-"""
 
 
-"""
+>>> conseil #1
 Pour que g puisse être d'ordre q, il faut que p-1 soit un multiple de q.
 Il faut donc fabriquer p en vérifiant que
         1 + q*(nombre aléatoire pair de la bonne taille)
 est bien un nombre premier.
+
+
+>>> conseil #1
+Pour trouver g, ce qu'il ne faut PAS faire, c'est essayer des valeurs aléatoires.
+Ça n'a aucune chance de marcher.  Mais il y a un moyen simple de produire des 
+nombres qui sont d'ordre q, s'ils sont différents de 1.
+
+
+>>> conseil #1
+Le truc consiste à choisir un nombre x aléatoirement, puis à calculer
+        g := x ** ((p-1) // q)     [modulo p]
+Si g == 1, recommencer (c'est très improbable).
+Sinon, on a :
+        g ** q == x ** (p-1)       [modulo p]
+               == 1                (d'après le petit théorème de Fermat)
 """
 
+
+
 # Trouver p premier entre [a, b) tel que p - 1 soit un multiple de q
-
-
 def generate_p(a, b, q):
     # Trouver le premier nombre >= a qui est congruent à 1 modulo q
     start = a + ((q - (a - 1) % q) % q)
@@ -29,24 +43,7 @@ def generate_p(a, b, q):
         if isprime(p):
             return p
 
-
 # Trouver g d'ordre q modulo p
-"""
-Pour trouver g, ce qu'il ne faut PAS faire, c'est essayer des valeurs aléatoires.
-Ça n'a aucune chance de marcher.  Mais il y a un moyen simple de produire des 
-nombres qui sont d'ordre q, s'ils sont différents de 1.
-
-
-Le truc consiste à choisir un nombre x aléatoirement, puis à calculer
-        g := x ** ((p-1) // q)     [modulo p]
-Si g == 1, recommencer (c'est très improbable).
-Sinon, on a :
-        g ** q == x ** (p-1)       [modulo p]
-               == 1                (d'après le petit théorème de Fermat)
-
-"""
-
-
 def generate_g(p, q):
     while True:
         x = random.randint(2, p - 2)
@@ -72,6 +69,5 @@ if __name__ == "__main__":
     g = generate_g(p, q)
     assert pow(g, q, p) == 1, "Erreur: g**q == 1 mod p"
 
-    print(
-        f"p premier tel que (a <= p < b) et (p - 1) soit un multiple de q: \n{p}")
+    print(f"p premier tel que (a <= p < b) et (p - 1) soit un multiple de q: \n{p}")
     print(f"g tel que g**q == 1 mod p: \n{g}")
