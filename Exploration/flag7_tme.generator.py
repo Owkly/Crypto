@@ -3,10 +3,10 @@ from sympy import isprime,  primerange
 
 
 """
-	a, b, q donnés
- 
-	But: produire (p, g) avec p premier (a <= p < b)
-			et g d'ordre q modulo p
+a, b, q donnés
+
+But: produire (p, g) avec p premier (a <= p < b)
+        et g d'ordre q modulo p
 
 
 >>> conseil #1
