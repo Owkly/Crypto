@@ -141,10 +141,29 @@ decryptage :
 ```bash
 # via script python :
 python3 flag6_chap_login.py 
-
 ```
 
 flag chap.login :
 ```
 [security engine] chap.login:136:1|220a64ceae1061053e72c55547379acb7d5b8f0ae5ff4eba87b10b146808eb4d
 ```	
+
+## flag 7 :
+
+données :
+```
+a, q en hexadécimal
+b = a + 2**1950
+```
+
+calcul de p et g :
+```bash
+# via script python :
+python3 flag7_tme.generator.py
+```
+flag tme.generator :
+```
+[security engine] tme.generator:136:1|951f2d9e86f9a4c46b61c325f4b8d9f42e2448f8a725bfede0003865346a92ae
+```
+
+## flag 8 :

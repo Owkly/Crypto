@@ -12,7 +12,7 @@ from flag1_register import decrypt_sym_key
 
 if __name__ == "__main__":
     # données du challenge
-    encrypted = """U2FsdGVkX1+29XFd2I+IEnjBbrRsDKkGSafinx7U0rCHvJTjdHb1BX+ZtTeFujdr\n"""
+    encrypted = """U2FsdGVkX188/AKpxaPk4FhcxG1a1pu6ZPgG97FuNA0+v5ke2swoKBkpU7LKprry\n"""
     symkey = "Yz134679258"
 
     try:
