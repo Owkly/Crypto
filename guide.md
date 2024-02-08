@@ -1,11 +1,18 @@
+# Connexion
+```bash
+telnet m1.tme-crypto.fr 1337
+```
+
 # Initialisation
 
 ## flag 1 :
 
 données :
 ```bash
-POST-IT PASSWORD: ISECR0XX
+#POST-IT PASSWORD: 
+ISECR0XX
 
+# Message chiffré dans flag1_mdp.txt :
 U2FsdGVkX1/51wqD7PnMSuRkwL8czQ1S/AznUxY9Z+K2tN2o5LBv1C2cM2fDGGD9
 hQym6B/W3VH0TNEn7dU2Xg==
 ```
@@ -29,6 +36,7 @@ flag register :
 
 donnéees :
 ```bash
+# clé publique dans flag2_pki_tutorial_pkey.pem :
 -----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvfOQoiH2KNKnDfJZmNAz
 bTEY6+2bTDvwrphV7hkuxzOxtVb1hxhgFLdqGmvSdRkeEJjICgSmysVHPbs5A2RT
@@ -64,6 +72,8 @@ openssl rsa -in flag3_pki_key.pem -pubout -out flag3_skey2.pem  # clé publique
 
 # soit script python :
 python3 flag3_pki_generate.py
+
+# stockés dans flag3_pkey.pem et flag3_skey2.pem
 ```
 
 flag pki.upload :
@@ -80,8 +90,61 @@ openssl dgst -sha256 -sign <fichier contenant la clé secrète> <fichier contena
 
 # soit script python :
 python3 flag4_power_on.py
+
+# résultat stocké dans flag4_signature_upload.txt et flag4_signature_challenge.txt
+*
 ```
+flag power.on :
 
 ```bash
 [security engine] power.on:136:1|40294b7ff0ae55ea647d882de452b3de93b5226d6eff895f7abc1abcba5b89df
 ```
+
+
+## flag 5 :
+
+```bash
+# données :
+Une feuille A4, 80g/m². Un utilisateur a imprimé dessus une trace du protocole 
+d'authentification CHAP. Peut-être qu'il essayait de mettre au point un client
+personnalisé pour se connecter ? Il y a écrit :
+---> {"jsonrpc": "2.0", "method": "protagonist.CHAP-challenge", "params": {"world_id": "8bef1547cc426dea0b72577e78cf6172", "username": "isabela51"}, "id": 5}
+<--- {"jsonrpc": "2.0", "result": "U2FsdGVkX1+JDJgfeCeSjMJI4KkUMSFQ3Ai2ZyUFIAeyeabQ2JYbfJt66sUKMfur\n", "id": 5}
+---> {"jsonrpc": "2.0", "method": "protagonist.CHAP-response", "params": {"world_id": "8bef1547cc426dea0b72577e78cf6172", "response": "snood wafts lusts niece bulgy"}, "id": 6}
+<--- {"jsonrpc": "2.0", "result": null, "id": 6}
+
+# mot de passe dans flag5_words.txt :
+```
+
+recherche du bon mot de passe qui decrypte le message :
+```bash
+# via script python :
+python3 flag5_words.txt
+```
+
+flag dict.atk :
+```
+isabela51
+seacoast
+[security engine] dict.atk:136:1|caf41960020e8bcd070c2edc00819e50600ec196bbd91680f6e0d9dda67f8c44
+```
+
+## flag 6 :
+
+données :
+```bash
+# pas de fichier directement dans le script python
+U2FsdGVkX1+29XFd2I+IEnjBbrRsDKkGSafinx7U0rCHvJTjdHb1BX+ZtTeFujdr\n
+```
+
+decryptage :
+```bash
+# via script python :
+python3 flag6_chap_login.py 
+
+```
+
+flag chap.login :
+```
+[security engine] chap.login:136:1|220a64ceae1061053e72c55547379acb7d5b8f0ae5ff4eba87b10b146808eb4d
+```	

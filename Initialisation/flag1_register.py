@@ -19,15 +19,15 @@ def decrypt_sym_key(msg_enc, passphrase, cipher='aes-128-cbc'):
 
     return result.stdout.decode()
 
-# Utilisation de la fonction
-encrypted = """U2FsdGVkX1/51wqD7PnMSuRkwL8czQ1S/AznUxY9Z+K2tN2o5LBv1C2cM2fDGGD9
-hQym6B/W3VH0TNEn7dU2Xg=="""     # Message chiffré
-symkey = "ISECR0XX"             # clé symétrique
-
-try:
-    decrypted = decrypt_sym_key(encrypted, symkey)
-    print("Message déchiffré:", decrypted)
-except Exception as e:
-    print(e)
 
 
+if __name__ == "__main__":
+    encrypted = """U2FsdGVkX1/51wqD7PnMSuRkwL8czQ1S/AznUxY9Z+K2tN2o5LBv1C2cM2fDGGD9
+    hQym6B/W3VH0TNEn7dU2Xg=="""     # Message chiffré
+    symkey = "ISECR0XX"             # clé symétrique
+
+    try:
+        decrypted = decrypt_sym_key(encrypted, symkey)
+        print(decrypted)
+    except Exception as e:
+        print(e)
