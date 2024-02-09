@@ -11,6 +11,11 @@ if initialisation_directory not in sys.path:
 from flag1_register import decrypt_sym_key
 
 def find_matching_password(encrypted_text, expected_result):
+    """
+    Algorithme de recherche de mot de passe
+    paramètres: encrypted_text -> texte chiffré
+                expected_result -> texte attendu après déchiffrement
+    """
     line_count = 0
     try:
         # Ouvre le fichier contenant les mots
@@ -43,4 +48,4 @@ if __name__ == "__main__":
     # Cherche le mot de passe correspondant
     find_matching_password(encrypted_text, expected_result)
     
-# Résultat seacoast
+# Résultat seacoast à la ligne 36328

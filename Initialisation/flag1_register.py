@@ -1,6 +1,12 @@
 import subprocess
 
 def decrypt_sym_key(msg_enc, passphrase, cipher='aes-128-cbc'):
+    """
+    Déchiffre un message avec une clé symétrique
+    paramètres: msg_enc -> message chiffré
+                passphrase -> clé symétrique
+                cipher -> algorithme de chiffrement (par défaut: aes-128-cbc)
+    """
     # Commande pour déchiffrer un message avec une clé symétrique : openssl enc -d -base64 -aes-128-cbc -pbkdf2 -pass pass:<symkey> -in <message chiffré>
     args = ['openssl', 'enc', '-d', '-base64', '-' + cipher, '-pbkdf2', '-pass', 'pass:' + passphrase]
 

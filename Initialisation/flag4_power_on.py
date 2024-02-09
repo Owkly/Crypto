@@ -1,6 +1,12 @@
 import subprocess
 
 def sign_msg_pkey(msg, skey, signature_path):
+    """"
+    Signe un message avec une clé privée
+    paramètres: msg -> message à signer
+                skey -> fichier contenant la clé privée
+                signature_path -> fichier pour sauvegarder la signature
+    """
     # Commande pour signer un message avec la clé privée : openssl dgst -sha256 -sign <fichier contenant la clé privée> -out <fichier pour la signature> -hex
     args = ['openssl', 'dgst', '-sha256', '-sign', skey, '-out', signature_path, '-hex']
 

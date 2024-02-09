@@ -1,6 +1,11 @@
 import subprocess
 
 def generate_skey(key_size, skey_path):
+    """
+    Génère une clé privée RSA
+    paramètres: key_size -> taille de la clé en bits
+                skey_path -> chemin du fichier pour sauvegarder la clé privée
+    """
     # Génère une clé privée RSA de la taille spécifiée
     gen_skey_args = ['openssl', 'genpkey', '-algorithm', 'RSA', '-pkeyopt', f'rsa_keygen_bits:{key_size}']
     skey_process = subprocess.run(gen_skey_args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -17,6 +22,11 @@ def generate_skey(key_size, skey_path):
 
 
 def extract_pkey(skey_path, pkey_path):
+    """
+    Extrait la clé publique RSA à partir de la clé privée
+    paramètres: skey_path -> chemin du fichier contenant la clé privée
+                pkey_path -> chemin du fichier pour sauvegarder la clé publique
+    """
     # Extrait la clé publique RSA à partir de la clé privée
     gen_pkey_args = ['openssl', 'pkey', '-in', skey_path, '-pubout']
     pkey_process = subprocess.run(gen_pkey_args, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

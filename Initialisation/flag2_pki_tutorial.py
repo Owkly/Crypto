@@ -3,6 +3,11 @@ import binascii
 
 
 def encrypt_pkey(msg, publickey):
+    """
+    Chiffre un message avec une clé publique
+    paramètres: msg -> message à chiffrer
+                publickey -> fichier contenant la clé publique
+    """
     # Commande pour chiffrer un message avec la clé publique : openssl pkeyutl -encrypt -pubin -inkey <fichier contenant la pkey>
     args = ['openssl', 'pkeyutl', '-encrypt', '-pubin', '-inkey', publickey]
 
