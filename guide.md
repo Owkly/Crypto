@@ -119,7 +119,7 @@ personnalisé pour se connecter ? Il y a écrit :
 recherche du bon mot de passe qui decrypte le message :
 ```bash
 # via script python :
-python3 flag5_words.txt
+python3 flag5_dict_atk.py
 ```
 
 flag dict.atk :
@@ -150,12 +150,6 @@ flag chap.login :
 
 ## flag 7 :
 
-données :
-```
-a, q en hexadécimal
-b = a + 2**1950
-```
-
 calcul de p et g :
 ```bash
 # via script python :
@@ -167,3 +161,16 @@ flag tme.generator :
 ```
 
 ## flag 8 :
+
+calcul de g, et p avec avec la décomposition de (p-1)//q :
+```bash
+# via script python :
+python3 flag8_tme.primitive_1.py # beaucoup plus long (20-30 minutes) mais quasi sûr de trouver la solution
+
+python3 flag8_tme.primitive_2.py # plus rapide mais selon le n choisi peut ne pas trouver de solution
+```
+
+flag tme.primitive :
+```
+[security engine] tme.primitive:136:1|7a555996d42b91dd6204ab9abd23c41f7d2699b89032e5ecb36a57c2e7a614cd
+```

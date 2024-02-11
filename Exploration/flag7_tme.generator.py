@@ -7,26 +7,6 @@ a, b, q donnés
 But: produire (p, g) avec p premier (a <= p < b)
         et g d'ordre q modulo p
         
->>> conseil #1
-Pour que g puisse être d'ordre q, il faut que p-1 soit un multiple de q.
-Il faut donc fabriquer p en vérifiant que
-        1 + q*(nombre aléatoire pair de la bonne taille)
-est bien un nombre premier.
-
-
->>> conseil #1
-Pour trouver g, ce qu'il ne faut PAS faire, c'est essayer des valeurs aléatoires.
-Ça n'a aucune chance de marcher.  Mais il y a un moyen simple de produire des 
-nombres qui sont d'ordre q, s'ils sont différents de 1.
-
-
->>> conseil #1
-Le truc consiste à choisir un nombre x aléatoirement, puis à calculer
-        g := x ** ((p-1) // q)     [modulo p]
-Si g == 1, recommencer (c'est très improbable).
-Sinon, on a :
-        g ** q == x ** (p-1)       [modulo p]
-               == 1                (d'après le petit théorème de Fermat)
 """
 
 
@@ -54,7 +34,6 @@ def generate_p(a, b, q):
 def generate_g(p, q):
     """
     Trouver g d'ordre q modulo p
-    (g**q == 1 mod p)
     paramètres: p -> nombre premier
                 q -> facteur
     """
