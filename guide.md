@@ -51,7 +51,8 @@ mwIDAQAB
 encryptage :
 ```bash
 # soit commande openssl :
-echo -n "I got it!" | openssl pkeyutl -encrypt -pubin -inkey flag2_pki_tutorial_key.pem | xxd -p | tr -d '\n'
+openssl pkeyutl -encrypt -pubin -inkey flag2_pki_tutorial_pkey.pem -in flag2_msg.txt -out flag2_msg_encrypted.bin
+xxd -p -c 256 flag2_msg_encrypted.bin
 
 # soit script python :
 python3 flag2_pki_tutorial.py
@@ -67,8 +68,8 @@ flag pki.tutorial :
 génération des clés :
 ```bash
 # soit commande openssl :
-openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048
-openssl rsa -in flag3_pki_key.pem -pubout -out flag3_skey2.pem  # clé publique
+openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 -out flag3_pkey # clé privée
+openssl rsa -in flag3_pki_key.pem -pubout -out flag3_skey.pem  				 # clé publique
 
 # soit script python :
 python3 flag3_pki_generate.py
@@ -86,13 +87,18 @@ flag pki.upload :
 signer un message avec la clé privée :
 ```bash
 # soit commande openssl :
-openssl dgst -sha256 -sign <fichier contenant la clé secrète> <fichier contenant le message> | xxd -p -c 256 > <fichier pour contenir le msg signé>
+openssl dgst -sha256 -sign <fichier contenant la clé secrète> <fichier contenant le message> 
+xxd -p -c 256 <nom du fichier contenant la signature>
+
+	# exemple
+	openssl dgst -sha256 -sign flag3_skey.pem -out flag4_signature_challenge.bin flag4_challenge.txt
+	xxd -p -c 256 flag4_signature_challenge.bin
+
+	openssl dgst -sha256 -sign flag3_skey.pem -out flag4_signature_upload.bin flag4_upload.txt
+	xxd -p -c 256 flag4_signature_upload.bin
 
 # soit script python :
 python3 flag4_power_on.py
-
-# résultat stocké dans flag4_signature_upload.txt et flag4_signature_challenge.txt
-*
 ```
 flag power.on :
 

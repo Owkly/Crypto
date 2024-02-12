@@ -24,7 +24,7 @@ def encrypt_pkey(msg, publickey):
     if error_message != '':
         raise Exception(f"Erreur lors du chiffrement: {error_message}")
 
-        # conversion en hexadécimal
+    # conversion en hexadécimal
     hex_encoded = binascii.hexlify(result.stdout).decode()
     return hex_encoded
 
@@ -36,6 +36,6 @@ if __name__ == "__main__":
 
     try:
         encrypted = encrypt_pkey(msg, publickey)
-        print(encrypted)
+        print(f'message ecrypté en hexadécimal: \n{encrypted}')
     except Exception as e:
         print(e)
