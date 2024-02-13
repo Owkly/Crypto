@@ -1,0 +1,7 @@
+- Introduction
+- Généralités sur la mécanique quantique
+- Spécification de l'accélérateur de particules
+- Téléportation d'information quantique à puissance nominale
+- Conjecture : univers parallèles
+- Travaux à venir : téléportation de matière à puissance maxi
+- Conclusion et remerciements

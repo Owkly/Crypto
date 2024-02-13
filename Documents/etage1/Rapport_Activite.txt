@@ -1,0 +1,43 @@
+COMMENT FUIR UNE FLOTTE DE DRONES TUEURS ?
+==========================================
+M. Latapy, C. Magnien, L. Tabourier (équipe ComplexNetworks, 2022)
+
+Résumé opérationnel
+-------------------
+- Face à des drones qui utilisent des algorithmes simples, 
+  la plupart des fuyards inexpérimentés sont rattrapés
+- La compréhension des algorithmes utilisés par les drones 
+  augmente les chances de survie
+- Un entrainement intensif dans une simulation que nous avons
+  construite permet une survie avec probabilité proche de 
+                           [--------REDACTED--------]
+
+Remerciements
+-------------
+Ces travaux ont reçu le soutien financier (défiscalisé) des entreprises 
+                           [--------REDACTED--------]
+leaders mondiaux de la production de drones militarisés.
+
+[vous sautez une dizaine de pages de blabla]
+
+Retro-conception des algorithmes des drones
+-------------------------------------------
+- Les drones peuvent aller tout droit et tourner à 90°
+- Ils ne peuvent pas faire demi-tour
+                           [--------REDACTED--------]
+- Les drones visent un emplacement donné, et quand ils ont un
+  choix à effectuer, ils minimisent la distance euclidienne
+- Les drones de type B se dirigent vers la cible
+- Les drones de type P se dirigent 4 intervalles DEVANT la cible
+- Les drones de type C visent la cible, sauf si celle-ci est proche. Alors
+                           [--------REDACTED--------]
+- Les drones de type K implantent l'algorithme suivant: 
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+- Nous n'avons pas réussi à confirmer l'existence de drones de type
+                           [--------REDACTED--------]
+
+[...]
+
+On ne sait jamais, ça pourrait être utile dans le futur proche.

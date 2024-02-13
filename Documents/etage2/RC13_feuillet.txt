@@ -1,0 +1,8 @@
+Une feuille A4, 80g/m². Un utilisateur a imprimé dessus une trace du protocole 
+d'authentification CHAP. Peut-être qu'il essayait de mettre au point un client
+personnalisé pour se connecter ? Il y a écrit :
+---> {"jsonrpc": "2.0", "method": "protagonist.CHAP-challenge", "params": {"world_id": "0b40fe54d1b639b3ae8fcf93a412654d", "username": "isabela51"}, "id": 432}
+<--- {"jsonrpc": "2.0", "result": "U2FsdGVkX183cUeVdAsfp4J14JlxF1lrKAcwHpYo2eiUfOpBhfK6OjOOa9luUtPb\n", "id": 432}
+---> {"jsonrpc": "2.0", "method": "protagonist.CHAP-response", "params": {"world_id": "0b40fe54d1b639b3ae8fcf93a412654d", "response": "rotor atone happy bores sines"}, "id": 433}
+<--- {"jsonrpc": "2.0", "result": null, "id": 433}
+

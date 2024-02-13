@@ -1,0 +1,25 @@
+1. Dans le cadre de notre campagne de communication intitulée
+        "une sécurité maximale, mais avec la classe"
+   nous vous rappelons que tous les utilisateurs de ce bâtiment
+   doivent dorénavant avoir une clef publique RSA qui contient
+   la chaîne "+++ATRIUM+++".
+
+2. Cette chaîne promotionnelle doit se trouver à l'intérieur de la clef
+   publique ; en particulier, elle ne doit pas être ajoutée au bout d'une
+   clef pré-existante.  Autrement dit, ceci n'est pas autorisé :
+       -----BEGIN PUBLIC KEY-----
+       MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsHyqhsu3IxBYkCifvMrP
+       uM/uv0hfq0PHbCfrUxFYooWLm3M0rru5Q+9BKQXqBRLa9iO+Tgn8Sy9+ABz0EJVd
+       RRtatBkRj/UG3k+65UMxn5s47It+2sCXrX8TDmqPPtVa8Heo/5pqH1A/0LGj5YRo
+       8GT0/ITj40j3I+Kp/1a9qP6+5eAqvUHfpC/hro2OCBAOi4+Q8qB+Zrx3jCa1l4R4
+       0zQpvVf0nE+tjt7ZLBqlwKUnEWvVmFYJ3l/dikT9yG7s0UBOhAT8rZmwZVOluYeW
+       yuERSus5TJbN8V9XR8q1lk8o7WBxtpyJotf5l/cCdmVlL9cSaZhVx26cAEcZ496z
+       2QIDAQAB+++ATRIUM+++
+       -----END PUBLIC KEY-----
+
+3. Pour entrer dans le bâtiment ou dans les bureaux, il faut passer son
+   badge devant le lecteur NFC.  Le badge doit contenir la clef publique,
+   puis l'utilisateur doit réaliser une signature de manière interactive.
+
+4. Pour simplifier la gestion des clefs, les occupants du même bureau 
+   ont des clefs publiques RSA qui ont le même modulo (N).

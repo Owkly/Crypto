@@ -5,3 +5,4 @@ livre.md
 historique.txt
 conseil.txt
 __pycache__
+*.bin
