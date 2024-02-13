@@ -8,15 +8,15 @@ def sign_msg_skey(msg, skey, signature_path):
                 signature_path -> fichier pour sauvegarder la signature
     """
     
-    #
+    # Si le message est une chaîne de caractères, le convertir en bytes
     if isinstance(msg, str):
         msg = msg.encode('utf-8')
         
-    #
+    # Exécute la commande pour signer le message
     args = ['openssl', 'dgst', '-sha256', '-sign', skey, '-out', signature_path]
     result = subprocess.run(args, input=msg, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     
-    #
+    # Vérifie s'il y a des erreurs
     error_message = result.stderr.decode()
     if error_message != '':
         raise Exception(error_message)
@@ -28,15 +28,15 @@ def verify_signature(msg, signature_path, pubkey_path):
                 signature_path -> fichier contenant la signature
                 pubkey_path -> fichier contenant la clé publique
     """
-    #
+    # Si le message est une chaîne de caractères, le convertir en bytes
     if isinstance(msg, str):
         msg = msg.encode('utf-8')
     
-    #
+    # Exécute la commande pour vérifier la signature
     args = ['openssl', 'dgst', '-sha256', '-verify', pubkey_path, '-signature', signature_path]
     result = subprocess.run(args, input=msg, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     
-    #
+    # Vérifie s'il y a des erreurs et affiche le résultat
     output_message = result.stdout.decode()
     error_message = result.stderr.decode()
     if "Verified OK" in output_message:
@@ -68,19 +68,23 @@ if __name__ == "__main__":
     signature_path_1 = "flag4_signature_upload.bin"
     signature_path_2 = "flag4_signature_challenge.bin"
 
-    # Signature des messages
-    for message, signature_path in [(upload, signature_path_1), (challenge, signature_path_2)]:
-        try:
-            sign_msg_skey(message, skey, signature_path)
-            print(f"Signature du message '{message}' sauvegardée dans '{signature_path}'")
-            # Afficher la signature en hexadécimal
-            display_signature_hex(signature_path)
-        except Exception as e:
-            print("Une erreur s'est produite lors de la signature:", e)
+    # Signature et vérification du message 'upload'
+    try:
+        sign_msg_skey(upload, skey, signature_path_1)
+        print(f"Signature du message '{upload}' sauvegardée dans '{signature_path_1}'")
+        # Afficher la signature en hexadécimal
+        display_signature_hex(signature_path_1)
+        verify_signature(upload, signature_path_1, pubkey_path)
+    except Exception as e:
+        print("Une erreur s'est produite lors de la signature ou de la vérification de 'upload':", e)
 
-    # Vérification des signatures
-    for message, signature_path in [(upload, signature_path_1), (challenge, signature_path_2)]:
-        try:
-            verify_signature(message, signature_path, pubkey_path)
-        except Exception as e:
-            print("Une erreur s'est produite lors de la vérification de la signature:", e)
+    # Signature et vérification du message 'challenge'
+    try:
+        sign_msg_skey(challenge, skey, signature_path_2)
+        print(f"Signature du message '{challenge}' sauvegardée dans '{signature_path_2}'")
+        # Afficher la signature en hexadécimal
+        display_signature_hex(signature_path_2)
+        verify_signature(challenge, signature_path_2, pubkey_path)
+    except Exception as e:
+        print("Une erreur s'est produite lors de la signature ou de la vérification de 'challenge':", e)
+

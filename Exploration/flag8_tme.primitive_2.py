@@ -1,4 +1,3 @@
-import sympy
 from sympy import isprime, nextprime
 
 """
