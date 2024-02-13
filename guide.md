@@ -184,8 +184,9 @@ flag tme.primitive :
 ## flag 9 :
 
 
-```
-pk.login:136:1|c69f45f34f051cf8a8b63b90453be12daed50212019c64f6ff7756e79df239cb
+```bash
+# via script python :
+python3 flag9_pk.login.py
 ```
 
 flag pk.login :
