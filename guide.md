@@ -194,3 +194,19 @@ flag pk.login :
 ```
 [security engine] pk.login:136:1|c69f45f34f051cf8a8b63b90453be12daed50212019c64f6ff7756e79df239cb
 ```
+
+## flag 10 :
+
+```bash
+# via script python :
+python3 flag10_pk.sign.py
+
+# ou via commande openssl :
+openssl req -new -key flag10_skey.pem -batch -subj '/CN=Yannick' -out flag10_csr.pem
+```
+
+flag pki.cert :
+
+```
+[security engine] pki.cert:136:1|c8ad30faa28983690a3b96f26e2a9b631e328988db0ac4bef62e3a7ff5300a25
+```
