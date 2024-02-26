@@ -5,6 +5,8 @@ telnet m1.tme-crypto.fr 1337
 
 # Initialisation
 
+Allez dans le dossier Initialisation
+
 ## flag 1 :
 
 données :
@@ -106,6 +108,9 @@ flag power.on :
 [security engine] power.on:136:1|40294b7ff0ae55ea647d882de452b3de93b5226d6eff895f7abc1abcba5b89df
 ```
 
+# Exploration
+
+Allez dans le dossier Exploration
 
 ## flag 5 :
 
@@ -209,4 +214,43 @@ flag pki.cert :
 
 ```
 [security engine] pki.cert:136:1|c8ad30faa28983690a3b96f26e2a9b631e328988db0ac4bef62e3a7ff5300a25
+```
+
+## flag 11:
+
+
+```bash
+# via script python 
+# pour générer les clés
+python3 flag11_rsa.keygen.py
+# pour vérifier la signature
+python3 flag11_challenge.py
+```
+
+```bash
+[security engine] rsa.keygen:136:1|940e6ea8d01a14159b3dfeae0a6ae9be1a3a67e4d2fc2a9efeb820b57b8cf279
+```
+
+
+```bash
+Ici se trouve une serrure sans contact (NFC) sur la grille.
+
+>>> use card
+        challenge: barfs finds viers hypos libra
+
+        signature:  683fe62b98f2dd2f06f920bfb80733e4b398624f98d642eba0d7e8605654e596c8f73a2f4eda47987de1b2aded7f06b7cd36cc1e1a150e7a629272c39bf3e82d665db1555aa644caac45bcede4da7d88250545b1a3e24f76859a8ec2f62b60d42a5214c128c670d3f621ee46764b5e5c943fdc552aa0d82ef78a843b6c9ff2da033eeee8fb05518228778540ed927b04c2a8dd4f315feef33691d9bdb472f89f78d67889afdd945faf18276a11ed48e9a9e4d54e31ca0b16ed9b7baf3091d004f39537867dceedc53aa0f45da2ce6b35649b5313ed37da6620e01ea9c2c35f0324e3e53cfa1fa35ddd0ae723a1d3b0a89d4bb693ee172fa664ae3350534dbd30
+
+Une lumière verte s'allume sur le lecteur de badge.
+La porte vitrée se déverrouille et vous pénetrez à l'intérieur.
+(la prochaine fois, au lieu de refaire tout ce cirque, il suffira
+(d'utiliser le lecteur de badge et ça suffira).
+
+Vous êtes dans un petit espace gris et bétonné qui sépare le jardinet de
+l'intérieur du bâtiment.  Au nord et au sud, il est fermé par deux grilles
+métalliques, et le tout fait penser à une cellule de prison.  La personne
+qui fait le ménage par ici a pris l'habitude d'y laisser son petit charriot.
+Au nord, on peut accéder à un couloir turquoise.
+
+[1d2d542cb79a9949f40890da7bc05324] {"session-key": "2c8fb8a556e75119c8ebf6e13c870890df50faae454e8aae97a2f5e701a5cd68bb233f388f89deed50b64769ef0321f542908e2c8477330eba72950d52d17cbd422387d273fa054c40983f5358da2209fe28f511d15392d266ef21c3029ef2b37db658b1fa2710dc2fb68faca48fcf4857ad87ee72da64410f8b1768a2365751489dce38a98a6868c538abe1aaf45945c11e91b64fd4e3025facf88aba536a0178fa0a008c290e19652c2d4fb8e072ef1fe02ff6c99b218db5d70f05f118f125d191214738548d72f653de6bd1bcb28b2334dbf7245302268de0a3210a750d226bad3338e6daf7732476c66390c591f1c30035f1364f91a27f454d42d6bc461d", "ciphertext": "U2FsdGVkX1+qPoHYhjwHQPt/EAzMqZO3Deu8qKe15JI="}
+[security engine] rsa.keygen:136:1|940e6ea8d01a14159b3dfeae0a6ae9be1a3a67e4d2fc2a9efeb820b57b8cf279
 ```

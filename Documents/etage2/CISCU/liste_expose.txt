@@ -1,0 +1,34 @@
+10h00 : Mot de bienvenue du directeur de l'ISIR
+
+10h30 : BiblioDrone-NG
+        
+        Cet exposé décrit les avancées scientifiques et techniques
+        qui ont conduit à la conception de la nouvelle version du drone
+        bibliothécaire.  L'exposé montrera une vidéo où il parvient à
+        récupérer semi-automatiquement un livre dans la réserve du sous-sol.
+        
+11h00 : IA d'assistance pour directeur de laboratoire
+
+        Les directeurs de labo sont toujours submergés par une montagne de 
+        paperasse à signer (recrutement de stagiaires, ordres de mission, 
+        achat d'agrafes, validation de projets, ...).  Dans cet exposé, nous 
+        présentons un programme pour faciliter le processus.  Les demandeurs
+        soumettent leurs documents au programme, qui décide tout seul s'il faut
+        signer ou pas.  Seuls les cas les plus délicats sont gérés manuellement.
+        Une démonstration en direct conclura cette présentation et des pistes
+        d'amélioration seront suggérés, notamment l'implantation complète de la 
+        signature.
+
+11h30 : Enseigner la cybersécurité de manière interactive
+
+        La plupart des TP de cyber-sécurité sont barbants.  Ce constat est
+        partagé par toute la communauté éducative, enseignants comme
+        étudiants.  Tout le monde se fait ch*er.  Dans cet exposé, nous
+        présenterons l'ébauche d'une piste pour rendre cette activité
+        plus plaisante en supprimant les enseignants (c'est quand même
+        ça la racine du problème).  Nous montrerons les prototypes de
+        web-services avec lesquels les étudiants doivent interagir pour
+        s'entraîner à la détection de fraude bancaire.
+
+12h00 : Conclusion et buffet
+
