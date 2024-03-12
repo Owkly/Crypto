@@ -45,18 +45,35 @@
 from Crypto.PublicKey import RSA
 import base64
 
-base64_string = "ee+++ATRIUM+++ed"
+def generate_rsa_keys(base64_string, public_key_file, private_key_file):
+    """
+    Génère une paire de clés RSA à partir d'une valeur en base64 qui détermine l'exposant public
 
-decoded_bytes = base64.b64decode(base64_string)
-print(decoded_bytes)
+    paramètres: base64_string (str): Chaîne en base64 à convertir pour l'exposant public.
+                public_key_file (str): Chemin où la clé publique sera sauvegardée.
+                private_key_file (str): Chemin où la clé privée sera sauvegardée.
+    """
+    # Décodage de e en base64
+    decoded_bytes = base64.b64decode(base64_string)
+    print("e (en bytes) : ", decoded_bytes)
 
-decimal_value = int.from_bytes(decoded_bytes, byteorder='big')
-print(decimal_value)
+    # Conversion en valeur décimale
+    decimal_value = int.from_bytes(decoded_bytes, byteorder='big')
+    print("e (en décimal) : ", decimal_value)
 
-key = RSA.generate(bits=2048, randfunc=None, e=decimal_value)
-# je sauvegarde les fichiers
-with open('flag11_pkey.pem', 'wb') as f:
-    f.write(key.publickey().export_key('PEM'))
+    # Génération de la paire de clés RSA avec e comme exposant public
+    key = RSA.generate(bits=2048, randfunc=None, e=decimal_value)
 
-with open('flag11_skey.pem', 'wb') as f:
-    f.write(key.export_key('PEM'))
+    # Sauvegarde des clés dans des fichiers  
+    with open(private_key_file, 'wb') as f:
+        f.write(key.export_key('PEM'))
+    with open(public_key_file, 'wb') as f:
+        f.write(key.publickey().export_key('PEM'))
+
+# Utilisation de la fonction
+if __name__ == "__main__":
+    base64_string = "ee+++ATRIUM+++ed"
+    public_key_file = "flag11_pkey.pem"
+    private_key_file = "flag11_skey.pem"
+
+    generate_rsa_keys(base64_string, public_key_file, private_key_file)

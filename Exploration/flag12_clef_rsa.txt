@@ -1,0 +1,24 @@
+>>> regarder clef rsa
+username: qharris
+d       : 7932b7688d199e911584c5561788f4893130a9c80aa1d5c4bbaf0280ad2073689486ecdda8989e9f7627b13e8376f76ce54d2849f9942cddc250e470dd8ddc9d4071b0b938ef0ea6b04c8387eed82a4788ef85bff1c1cabf60c51111fced2343c4e8b33ccdc8363f3fd0f0c5fb1ba9206514bc33966914545b1001fdb480a4d209e0da70fa8650d723cd3bd1864dac67ec2cdbbd3d148c32a776f63dd6f576e386eb5b339c976fdfdff58ef987e7a9be2584c579d24b0da7c4e00df914dba684b2ade5aac4bff3ed0bedaf7ad9a7ab4659cf99424fea0e3372e0a00e3993ffbae2a894a2834856e4bfd4b10c89aa4da262654beb582b73c258364dfd47945d19
+
+>>> regarder panonceau
+Bureau RC-07 (équipe DEV): qharris et brucevaldez
+
+>>> regarder panonceau
+Salle RC-25 (équipe SÉCU) : paul29 et tjacobson
+
+digicode
+>>> regarder panneau
+Il y a des affiches annonçant des colloques de sécurité informatique,
+de petites annonces et quelques messages destinés aux utilisateurs des
+locaux.  L'un d'entre eux dit notamment :
+
+    MESSAGE IMPORTANT POUR LES UTILISATEURS DE LA SALLE RC-25
+    ---------------------------------------------------------
+
+    - paul29: 87dcb479d4f974d4f00eb3b3fae5c7d1bf43c8bcfc56a3e0a845ae824a3d8fcb20f9403309ebc434231812d6a2388fa174fb3b4b489c339e7a6ee6b20a0e41afa81bac9d14062770935dc2e39fb5e359458bb6a73195e5ed03f1850282a92b6ffb8967ac77c3b28399bc54d1c7fc9fbf790ae5c80fb8a81a53c037a799da95bb87833b88136cbecd396384d14a4674b2eaeed558de3dd35fcb4236dacb575e0ebee6264dba8839dd4217cc565481b0dddfbdb10c1bb40ccb16e9d6850aa6d90729ce816e986253081cc62daafdad494646041519d68a2f2239c839d4c1988471de9ce77f04feb5ef1d374ed1cba3ba1bb5c43822d673d4c322920d5ec342f45c
+    - tjacobson: 87de1ad6eb132ba6284d5e7d6908de13a734014d0db1d736fc6e96544a916a66a479c0dc2c863ab37df009c39c9061daa3efd172194ce3cc641a36885ced735fb6ae28d689a92ef08caaa2f453ae13eac03406eb1896000403e8040b56e131dcf70fc8529fcda1bee569351b2ae5421555e38aad5fc4aabd544e7e4100dc80a781693fbde64e8e43244abac067b399f4390e532d8e50f3a914bfda7510a7f6a850f8b5d3929c1fec7d8ae8eea86f8fa120d7afb90920bbfd7053289dc993dcc0d0abe3d095fb3af41c924c49cfe12bd0970a3032114764f077993e63714deff29f869d8ae1b96afa90de25277f84bba49ffa3742a3eb45d5f471c1102a8eefb9
+
+
+donc on a 
