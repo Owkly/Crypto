@@ -260,3 +260,9 @@ Au nord, on peut accéder à un couloir turquoise.
 ```bash
 [security engine] rsa.shared:136:1|867f790029d943d1c164febbc296af1952766639a3af26bc107da2254a94e50c
 ```
+
+# flag 13:
+
+```
+rsa.reduction:136:1|0e99697ed1c938d5b9280fc4d5cbcc75ffee7f6e4d419ce7011d31bc776d4c90
+```
