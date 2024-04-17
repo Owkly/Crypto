@@ -12,7 +12,7 @@ from flag4_power_on import sign_msg_skey, display_signature_hex
 
 if __name__ == "__main__":
     # Messages à signer et à vérifier, et chemins des fichiers
-    challenge = "oasis amble basal tusky under"
+    challenge = "leaps warty tries lings jolts"
     skey_path = "flag13_finded_skey.pem"
     signature_path = "flag13_signature_challenge.bin"
 

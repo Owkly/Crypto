@@ -1,0 +1,18 @@
+>>> lire spécification du journal des évènements de sécurité
+Les évènement notables du point de vue de la sécurité sont consignés dans un
+journal par un des composants du sécurity engine.  Ces évènements ont un
+nom court (par ex. "rsa.reduction") et contiennent un UID.  Ils sont signés
+numériquement par le security engine, avec un MAC.  Une partie des
+utilisateurs appellent cela un "flag", alors que c'est tout simplement une
+                           [--------REDACTED--------]
+Les utilisateurs autorisés reçoivent en direct une notification lorsqu'une
+nouvelle entrée est ajoutée au  journal.  Périodiquement, un algorithme
+est exécuté sur le journal pour détecter des séquences d'évènements
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+Le journal alimente entre autre la base de connaissances du security engine.
+C'est le contenu de cette dernière qui sert à rendre des jugements de 
+sécurité automatiquement.  L'algorithme qui est utilisé pour cela est décrit
+                           [--------REDACTED--------]
+

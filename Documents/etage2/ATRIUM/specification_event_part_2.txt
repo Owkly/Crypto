@@ -1,0 +1,22 @@
+>>> lire spécification du journal des évènements
+Le MAC qui accompagne chaque entrée du journal des évènements de sécurité 
+fait 256 bits.  Il se décompose en fait en 4 blocs de 64 bits chacun :
+- le premier (octets [0:8]) est obtenu en évaluant un véritable MAC. Celui-ci
+                           [--------REDACTED--------]
+- les 3 autres blocs contiennent des parts d'un secret partagé avec le 
+  système de partage de secret de Shamir.
+Plus précisément, si on note : 
+- p : le nombre 2**64 - 59 (qui est premier),
+- X : les bits [0:64] du MAC,
+- A : les bits [64:128] du MAC,
+- B : les bits [128:192] du MAC,
+- C : les bits [192:256] du MAC.
+Alors A == R(X) mod p, où R est un polynôme de degré 8 inconnu.
+Alors B == S(X) mod p, où S est un polynôme de degré 16 inconnu.
+Alors C == T(X) mod p, où T est un polynôme de degré 24 inconnu.
+Les coefficients constants de R, S et T sont des "firmware update keys", qui
+                           [--------REDACTED--------]
+Pour reconstituer ces coefficients, qui sont en fait R(0), S(0) et T(0), on
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+
