@@ -1,0 +1,97 @@
+[dfa83e5a7b053c0ce80b7306f705ecfa] Bonjour,
+
+Je suis un programme que mon créateur a conçu pour limiter le flux entrant de
+spam.  Conçu dans la philosophie UNIX, je ne fais qu'UNE chose, mais mais je la
+fais bien : je laisse passer uniquement les messages qui respectent quelques
+règles simples.
+
+La première de ces règles, que vous ne respectez pas, est de m'écrire avec la
+technique du chiffrement hybride.  Si vous ne la connaissez pas, vous pouvez
+consulter la littérature idoine à la bibliothèque.  Voici ce qui ne va pas :
+- JSON parse error
+
+Ma clef publique est :
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtyGmGJiPY1QkqyJUpk0h
+IGcU5BjyB3FX5wxUTOQNcNVvesMOsyzOwJEtC68gexZQfDd/WlWbKLuDQ9dmrDdv
+ODGEEFc3t+yuW52C3e7KNfjSNtyoDFA/+sEWbVotTVwrdbWL+HcR/76JBgNdRmnN
+ORJ5KrAbzcy+s4dV0fkH0i8nZIfqZvuhBoOrmf7c7zxndWua4Vu/7jXGNuXbVIaW
+04gEwXZs+cwFtgy23xHLXoEnPLctRGG3DmaB4pqlS8zrvPg+/l0oTJfCYJxqEpVk
+2+HR0D9ijmy9Z1MfXoECH4oj8AcqxHXRygftRgJAJpgM/ryomAUFYkqkFc8mio/+
+IwIDAQAB
+-----END PUBLIC KEY-----
+
+
+Bien cordialement,
+---
+e-secretary v0.4
+
+
+
+
+
+
+
+
+
+
+
+[dfa83e5a7b053c0ce80b7306f705ecfa] Bonjour,
+                                   
+Je suis un programme que mon créateur à conçu pour limiter le flux entrant de
+spam.  Conçu dans la philosophie UNIX, je ne fais qu'UNE chose, mais mais je la
+fais bien : je laisse passer uniquement les messages qui respectent quelques
+règles simples.
+
+La première de ces règles consiste à m'écrire avec la technique du chiffrement
+hybride, ce que vous faites.  Je vous en remercie.
+
+Cependant, mon créateur aimerait avoir des garanties quant à l'identité de ses
+correspondants. Par conséquent, il faudrait que vous ayiez une clef publique
+signée par au moins deux autres utilisateurs enregistrés dans la PKI.
+Encore une fois, si vous ne voyez pas de quoi je parle, retournez faire un tour
+à la bibliothèque. Voici ce qui ne va pas :
+- Votre clef publique n'est signée que par un seul utilisateur
+
+Bien cordialement,
+---
+e-secretary v0.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Username:                   Yannick
+
+Public key:                 
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5pPiJFvsTpEsdqG7m0By
+0xvkRYHbsEiz1l1dhQ1XDLrOCW5elLr4ooK80qO2UJceWdg40ZooDioIw3NsVcVY
+e8XcMJ5jK6gfkXWf8kxiwjGKKJrsRl+zsaPoD3PQzA2R1T1ccTAwmpV9YquJeqXI
+Du6VcFPZim5KMyV7rCwaLNQ20FwE89p5hs4oYZradKbAxbOwHQYLhTGmOh/fAk7S
+U8Xq2l3Bvjiy3qm5qZWTp8/x11G1ND+VDL9sJ5rS+NySq1OferTJC5GbNUDPuUzM
+3wQt3+tl5pnd9+ByNJIEyKFu16nDNgr0bsETKlIbuRwGhZdbXC6923BZcY2s8D2k
+9wIDAQAB
+-----END PUBLIC KEY-----
+
+Signatures:
+	- Thomas:
+		1a6e265da81675c968bda4975df3f865d2a72c0d7ee2fd72b1db71b6f2f91760586242a9588d2c814c751abda135e72227b8884a0fa5817f88ec3beb11b5dfabcbfbff284d4e608d1e5730d2d817aeb10b92e7831f93ed50f22d72ad4943a73cd500eb29b6b3c1a0b91f7d0edc7ba24707539bfbe4a06dbfb595c629085fde350bc62cb4966e2dc76fcbdd9b48fc33c367cac0f82de1607d18564536f1b5b4a7c02268065e7e6d925746d8369c5c5e66ea7f73bfa79edea37fbd69db18eb6ea409a6eb186e55c293898fccb398f27cebc8a3ad91bdd91676c803d43c85d54e35add7f0aa82e4665afb3461dd3737378de08d48b4a0692e8d67d63c55e9b3b68f
+	- RomainC:
+		7f9e16af1dd3a4e015b38ec1c2d6bdc800092c5cd3c8b63e17bb16105ea6a9d308309d946792528b778fed3df0311c6c905091c2451c128f9f8f4ec430da59997f4f0d7bef2eb772ed35c6c444d90f7b6957e1a2ca8d93be25e02fb767cf53255f19b035187eeac7fcd6d2f7a108c65c7b1d189c3815970fbdea71f01f043e8c25ca883ef0ef4f4c2138a0c2c59325596a74c8ab8a65a78958e090b908ac7b161a2a938168acea0f55975ca210e0e4be643ba272dc7faf28cfd1640f6d6996aad95d741243e49941614ef08e455e5c6f4e5ccf47e7e01f5359c1961302c3e98ca80d4381d68cb5cd83a68be6d1a308e1b3619ad4f652f784df9313b8bbe6fbf2
+
