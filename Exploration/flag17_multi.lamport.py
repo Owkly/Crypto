@@ -68,7 +68,7 @@ def main():
     # Reconstruire la clé privée Lamport et l'écrire dans un fichier PEM
     lamport_key = LamportPrivateKey(private_key_elements)
     pem_representation = lamport_key.dumps()
-    with open('flag17_lamport.pem', 'w') as f:
+    with open('flag17_lamport_skey.pem', 'w') as f:
         f.write(pem_representation)
     print("La clé privée Lamport a été reconstruite avec succès et est stockée dans flag17_lampport.pem")
 

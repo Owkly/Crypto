@@ -35,9 +35,9 @@ def load_public_key_from_file(file_path):
 
 def main():
     # Charger les modules et les exposants des clés publiques
-    n_julia27, e_julia27 = load_public_key_from_file('flag16_julia27.pem')
-    n_thomasprice, e_thomasprice = load_public_key_from_file('flag16_thomasprice.pem')
-    n_bbrown, e_bbrown = load_public_key_from_file('flag16_bbrown.pem')
+    n_julia27, e_julia27 = load_public_key_from_file('flag16_julia27_pkey.pem')
+    n_thomasprice, e_thomasprice = load_public_key_from_file('flag16_thomasprice_pkey.pem')
+    n_bbrown, e_bbrown = load_public_key_from_file('flag16_bbrown_pkey.pem')
 
     # Messages chiffrés convertis en entiers
     c_julia27 = int("a2fcd7054cc107e20a9f03ececa6f2ef734af8c07f2e84222a77a2060d7f4081e6a56a00e626995dd389316a7ceafe9f874e0e4fbe93d3d02ec2a16ab13bbc260ac9995c3357dbd38910798dbf67704f73c52ff447a9c5070803e44f1b171cb5236e7e939618704c40104d617b89410bb3fd9481f647053d5c02249719148f39decbd9f1bd5f5b7865aba92afcfd63a39d6240158a435abd002744cd4f14af4237151c7ddc1d15586355176d74f8dbbcfa86b8f9c5d4661f2d9d4bf27f5d5f2e8e167f27a14959507a3c0535650d90ab6754318627c03c1be8048f6fd95f9bc87230384ce476b5a0f3ab23d9e09adc8a83c845f813f62f095fb875f41596bb22", 16)
