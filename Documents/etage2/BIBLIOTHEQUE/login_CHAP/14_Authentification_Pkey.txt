@@ -1,25 +1,15 @@
-CHIFFREMENT À CLEF PUBLIQUE
-===========================
+PROTOCOLE D'IDENTIFICATION À CLEF PUBLIQUE
+==========================================
 
-Openssl permet d'effectuer du chiffrement/déchiffrement asymétrique, avec
-l'algorithme RSA.  Vous êtes invité à consulter la page de manuel
-correspondante (man openssl-pkeyutl). 
+Les utilisateurs qui ont déposé une clef publique dans la PKI peuvent
+s'identifier de manière encore plus sécurisée, sans utiliser leur mot de passe
+du tout.
 
-L'usage d'openssl pour effectuer des opérations de (dé)chiffrement asymétrique
-a deux limitations :
+Pour cela, il suffit d'entrer son nom d'utilisateur normalement mais d'indiquer
+"__PK__" comme mot de passe.  L'utilisateur reçoit en échange un challenge
+Il doit le signer avec sa clef privée puis envoyer la signature pour prouver
+son identité.
 
-1) Le message clair DOIT être plus court que la clef.  Si ce n'est pas le cas,
-   l'opération échoue avec un message "Public Key operation error, data too 
-   large for key size".  Avec une clef de 2000 bits, vous avez droit à environ
-   1800 bits de message.  C'est une limitation de l'algorithme lui-même.
-
-2) Openssl ne prévoit pas d'encoder le résultat de l'opération de chiffrement
-   en base64.  Par contre il y a une option pour l'encodage en... hexadécimal.
-
-La commande essentielle pour le chiffrement :
-
-   openssl pkeyutl -encrypt -hexdump -pubin -inkey <fichier contenant la clef publique>
-
-Ceci attend un message sur l'entrée standard, et affichera son chiffrement sur
-la sortie standard.  Pour déchiffrer, il faut fournir la clef secrète (et donc
-retirer l'option  "-pubin")
+La signature (qui doit être encodée en hexadécimal comme d'habitude) est
+vérifiée avec la clef publique de l'utilisateur.  Consulter le guide d'OpenSSL
+sur la signature pour plus de précisions.
