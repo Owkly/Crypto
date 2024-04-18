@@ -1,0 +1,42 @@
+Cahier de manipulation
+======================
+
+09:00 Démarrage de l'accélérateur
+
+09:27 Puissance nominale
+
+09:45 Première tentative de broadcast à cette puissance
+      Envoi de "Hello world!"
+
+09:57 Réception depuis les coordonnées dfa83e5a7b053c0ce80b7306f705ecfa 
+     de la chaine "Qui est là ? Il y a quelqu'un ?".
+
+10:23 Echange de plusieurs autres messages.  Apparemment notre interlocuteur 
+      est un être humain situé aux coordonnées dfa83e5a7b053c0ce80b7306f705ecfa.
+
+10:45 Légère surtension dans la bobine #3.  Arrêt et inspection des dégats.
+
+14:12 Redémarrage de l'accélérateur
+
+14:58 Puissance maximale.  Tous les systèmes OK.
+
+15:03 Démarrage de la tentative de téléportation d'une brique de légo 
+      vers les coordonnées dfa83e5a7b053c0ce80b7306f705ecfa.
+
+15:07 Explosion majeure dans la salle d'expérience.  stanley42 évacué par 
+      le SAMU (brulures superficielles)
+
+15:09 La brique de légo a disparu (vaporisée par l'explosion ?)
+
+16:20 Réunion d'urgence du conseil de labo.  Point sur les procédures de 
+      sécurité.  Les nouvelles expériences doivent être validées par le conseil.
+
+17:39 L'équipe de nettoyage constate la présence d'un objet non-identifié dans
+      la salle d'expérience.
+
+18:20 Réunion de débriefing de l'équipe expérimentale.  Personne ne reconnaît 
+      avoir déposé l'objet en question pour faire un canular.
+
+18:30 Nouveau mot de passe pour la salle d'expériences : 24599387b39fa8f5274e034e12fb9ee0
+
+18:45 Fin de la journée
