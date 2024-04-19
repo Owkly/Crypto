@@ -295,3 +295,9 @@ Au nord, on peut accéder à un couloir turquoise.
 ```bash
 [security engine] rsa.malleable:136:1|9fc13dd9e754286d8400c703ba2722e45332a93fbff95c373659412c91f164b5
 ```
+
+# flag 19
+
+```bash
+[security engine] credit.fraud:136:1|1d6ecac5a77ce5a6451f1a916915316c801975402b4fcbf5dde8c440aa132bf5
+```
