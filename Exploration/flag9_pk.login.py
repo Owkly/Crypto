@@ -12,7 +12,7 @@ from flag4_power_on import sign_msg_skey, display_signature_hex
 
 if __name__ == "__main__":
     # Signature et vérification du message 'challenge'
-    challenge = "fogey batty abets minds grand"
+    challenge = "clave abyss cadge twiny maths"
     skey_path = os.path.join(initialisation_directory, "flag3_skey.pem")
     signature_path = "flag9_signature_challenge.bin"
     try:

@@ -52,7 +52,7 @@ def factor(N, e, d):
     """
     Tente de factoriser N utilisant e et d.
     """
-    x = random.randint(2, N-2)  # Choix d'une base aléatoire pour plus de généralité
+    x = random.randint(2, N-2)  # Choix d'une base aléatoire relancer si ça ne marche pas
     ed_minus_1 = e * d - 1
     s = ed_minus_1
     while s % 2 == 0:
@@ -121,20 +121,20 @@ def main():
 
     p, q = factor(N, e1, d1)
     if p and q:
-        print("Facteurs trouvés pour N:")
-        print(f"p = {p}")
-        print(f"q = {q}")
+        print("Facteurs trouvés pour N:\n")
+        print(f"p = \n{p}")
+        print(f"\nq = \n{q}")
         phi_n = (p - 1) * (q - 1)
         d2 = mod_inverse(e2, phi_n)
-        print(f"d2 trouvée : {d2}")
-        print(f"d2 en hexadécimal: {hex(d2)}")
+        print(f"\nd2 trouvée : \n{d2}")
+        print(f"\nd2 en hexadécimal: \n{hex(d2)}")
         
         # Enregistrer la clé privée dans un fichier PEM
-        create_private_key_file(d2, N, e2, p, q, "flag13_skey.pem")
-        print("Clé privée enregistrée dans 'flag13_skey.pem'")
+        create_private_key_file(d2, N, e2, p, q, "flag13_finded_brucevaldez_skey.pem")
+        print("\nClé privée enregistrée dans 'flag13_finded_brucevaldez_skey.pem'")
   
     else:
-        print('Aucun facteur trouvé pour N.')
+        print('Aucun facteur trouvé pour N, essayer de relancer le programme car le choix de x est aléatoire')
 
 if __name__ == "__main__":
     main()
