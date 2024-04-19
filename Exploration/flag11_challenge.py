@@ -12,8 +12,8 @@ from flag4_power_on import sign_msg_skey, display_signature_hex
 
 if __name__ == "__main__":
     # Messages à signer et à vérifier, et chemins des fichiers
-    challenge = "bones civil scamp torso sloop"
-    skey_path = "flag11_skey.pem"
+    challenge = "enter craws lilts pewit tikes"
+    skey_path = "flag11_atrium_skey.pem"
     signature_path = "flag11_signature_challenge.bin"
 
     # Signature et vérification du message 'challenge'

@@ -23,7 +23,7 @@ def generate_csr(key_file, output_csr_file, subject_name):
 
 # Utilisation de la fonction
 if __name__ == "__main__":
-    key_file = "flag10_skey.pem"
+    key_file = "flag10_my_skey.pem"
     output_csr_file = "flag10_csr.pem"
     subject_name = "Yannick"
 
