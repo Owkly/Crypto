@@ -25,6 +25,6 @@ def generate_csr(key_file, output_csr_file, subject_name):
 if __name__ == "__main__":
     key_file = "flag10_my_skey.pem"
     output_csr_file = "flag10_csr.pem"
-    subject_name = "Yannick"
+    subject_name = "/CN=Yannick"
 
     generate_csr(key_file, output_csr_file, subject_name)

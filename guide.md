@@ -252,7 +252,6 @@ qui fait le ménage par ici a pris l'habitude d'y laisser son petit charriot.
 Au nord, on peut accéder à un couloir turquoise.
 
 [1d2d542cb79a9949f40890da7bc05324] {"session-key": "2c8fb8a556e75119c8ebf6e13c870890df50faae454e8aae97a2f5e701a5cd68bb233f388f89deed50b64769ef0321f542908e2c8477330eba72950d52d17cbd422387d273fa054c40983f5358da2209fe28f511d15392d266ef21c3029ef2b37db658b1fa2710dc2fb68faca48fcf4857ad87ee72da64410f8b1768a2365751489dce38a98a6868c538abe1aaf45945c11e91b64fd4e3025facf88aba536a0178fa0a008c290e19652c2d4fb8e072ef1fe02ff6c99b218db5d70f05f118f125d191214738548d72f653de6bd1bcb28b2334dbf7245302268de0a3210a750d226bad3338e6daf7732476c66390c591f1c30035f1364f91a27f454d42d6bc461d", "ciphertext": "U2FsdGVkX1+qPoHYhjwHQPt/EAzMqZO3Deu8qKe15JI="}
-[security engine] rsa.keygen:136:1|940e6ea8d01a14159b3dfeae0a6ae9be1a3a67e4d2fc2a9efeb820b57b8cf279
 ```
 
 # flag 12:
@@ -300,4 +299,10 @@ Au nord, on peut accéder à un couloir turquoise.
 
 ```bash
 [security engine] credit.fraud:136:1|1d6ecac5a77ce5a6451f1a916915316c801975402b4fcbf5dde8c440aa132bf5
+```
+
+# flag 20
+
+```bash
+[security engine] secret.sharing:136:1|11151834ae00c2537f3b9cea6d43c3d85a3954a981a91c1d9a4f44b469f7bbe1
 ```
