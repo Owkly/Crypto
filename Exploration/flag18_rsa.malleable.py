@@ -158,7 +158,7 @@ def main():
     print(f"Masked message (hex): \n{hex(masked_message)}")
     # il faut envoyer sans le 0x
 
-    # Signature du message masqué reçue
+    # Signature du message masqué reçue du laptop
     received_signature = int("bd246f0d66a841db07415bbb978e8774e604327e0645810c15b021ee2fe5209a48ad03ea89ac36b36f224a17f803cbe6f124220658797818995aa57799bc827442ecf4aa477dafb755b6016ff3bdbe7307379554495747b79f52ec807a07254561d0f001a1b8293908dcc2b01a5c815c2a009eb67db26acdac97d99b07fc923e9c0340ec26a2cc8b8e52ec4b9c33f19dfb65376555d9c573e3295fba42488cde3e5763d583d27dddc499a94629dbb6859df02b637e1006dcb2c4e20e5b2624fde0d1d198f4b3a4dde1f9669579172a6487d25029d9a18302cdba5b86c3b01ee18f3627d7d96a7c9e96ae160985ccff2e8c119d2e40436251c7725ddae8c77653",16)
 
     # Démasquage de la signature
