@@ -278,14 +278,20 @@ Au nord, on peut accéder à un couloir turquoise.
 [security engine] secure.vault:136:1|35cc552dc6e2fcf35d243e61d44fc94150093e0e001b737aa7127a837b423c8c
 ```
 
-flag 16
+# flag 16
 
 ```bash
 [security engine] rsa.crt:136:1|cb97a5f95ddcd88e51421a831efd86ca8e401613ba896d37626e938beb69a7e3
 ```
 
-flag 17
+# flag 17
 
 ```bash
 [security engine] multi.lamport:136:1|85d79dc91865aae90a992bf1104005cab0db7f2a020426627129b4684469f586
+```
+
+# flag 18
+
+```bash
+[security engine] rsa.malleable:136:1|9fc13dd9e754286d8400c703ba2722e45332a93fbff95c373659412c91f164b5
 ```

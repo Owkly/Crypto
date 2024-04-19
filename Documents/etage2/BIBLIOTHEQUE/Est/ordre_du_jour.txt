@@ -1,0 +1,3 @@
+Le mot JOUR est ambigü. Cela pourrait être :
+ - ordre du jour de la réunion d'équipe
+ - feuillet imprimé

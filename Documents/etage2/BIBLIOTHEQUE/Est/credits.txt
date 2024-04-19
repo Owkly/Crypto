@@ -1,0 +1,93 @@
+Ceci est la 4ème version, la plus aboutie, des travaux pratiques "UGLIX".
+La première version avait un fonctionnement différent (requêtes HTTP) et
+a été déployée en 2014 à l'université de Lille.  La deuxième version aussi
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+La v4 est le "préquel" de la v3, qui est destinée aux étudiants de M2.
+
+
+STAFF
+=====
+Programmation, scénario*  : Charles Bouillaguet
+Graphismes additionnels   : Orel Cosseron
+
+
+* enfin, si on ose dire...
+
+
+MUSIQUES
+========
+Les musiques ont été pompées dans...
+
+La série :
+- Stranger things (2016--2024)
+
+Les jeux vidéos :
+- "Secret of Mana" (1993)
+- "Half-life" (1998)
+- "Metal Slug 3" (2000)
+- "Half-Life 2" (2004)
+- "F.E.A.R." (2005)
+- "Legend of Zelda, Skyward Sword" (2011)
+- "Undertale" (2015)
+- "Hyper Light Drifter" (2016)
+- "Unsighted" (2021)
+
+                           [--------REDACTED--------]
+    
+
+EFFETS SONORES
+==============
+Les sons ont été pompés dans...
+
+Les jeux vidéos :
+- "The Legend of Zelda: A Link to the Past" (1991)
+- "Chrono Trigger" (1995)
+- "Duke Nukem 3D" (1996)
+- "Legend of Zelda, the Ocarina of Time" (1998)
+- "Half-life" (1998)
+- "Fallout 3" (2004)
+- "F.E.A.R." (2005)
+- "Portal 2" (2011),
+- "Katana Zero" (2019).
+
+Ainsi que dans quelques banques de son libres sur internet.
+
+
+INSPIRATIONS
+============
+Le premier jeu d'aventure en mode texte est le "Colossal Cave adventure"
+créé en 1975-77 par William Crowther et Don Woods. Don Knuth a produit une 
+version ré-écrite en C et très commentée en 2010 (qui été soigneusement
+étudiée pour réaliser ceci).
+
+Le concept et une partie du scénario sont directement volés à l'excellent 
+concours de programmation organisé en 2006 par la conférence internationale 
+sur la programmation fonctionnelle (ICFP) --- "the cult of the bound variable".
+
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+                           [--------REDACTED--------]
+
+L'idée que c'est NOUS qui remettons en service le problème au tout début de
+l'histoire a été éhontément pompée dans "Portal 2".
+
+
+REMERCIEMENTS
+=============
+Pour avoir suggéré des éléments de scénarios, des manières d'agencer les choses,
+rédigé quelques descriptions, exploré quelques recoins sombres de la fac, etc., 
+merci à Quentin Hammerer, Florette Martinez, Ambroise Fleury, Mickaël Hamdad,
+Jules Maire.
+
+Merci aux étudiantes et étudiants qui ont signalé de (nombreux) bugs:
+Shadd Desous (MSI 2023), Elias Saad (MAIN4, 2024), Linda Tala (MAIN4, 2024),  
+Daniel Haydamous (MSI 2024) et Antoine Poulain (MAIN4, 2024).
+
+                           [--------REDACTED--------]
+
+DISCLAIMER
+==========
+Toute ressemblance avec des lieu ou des personnages ayant vraiment existé
+n'est pas du tout accidentelle.  Par contre, leur rôle ou leur destin dans
+le "scénario" relèvent bien sûr de la fiction.
