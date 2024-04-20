@@ -1,0 +1,24 @@
+COMMANDES
+recup doc au 5e étage de l'ATRIUM
+extraire donnees puis lancer make (dans le dossier)
+
+Prefixe avec son nom d'utilisateur(16 caract) puis 64 en tout
+echo -n "lucie.miniaou123lucie.miniaou123lucie.miniaou123lucie.miniaou123" > prefix.txt
+./coll_finder prefix.txt A B
+cat prefix.txt A | md5sum
+cat prefix.txt B | md5sum
+cat prefix.txt A > pref_H1
+./coll_finder pref_H1 C D
+cat pref_H1 C | md5sum
+cat pref_H1 D | md5sum
+cat prefix.txt A C | md5sum
+cat prefix.txt A D | md5sum
+cat prefix.txt B D | md5sum
+echo -n "h4ckm0d3" > suffix.txt
+cat prefix.txt A C suffix.txt | md5sum
+cat prefix.txt A C suffix.txt > RES1
+cat prefix.txt A D suffix.txt > RES2
+cat prefix.txt B C suffix.txt > RES3
+cat prefix.txt B D suffix.txt > RES3
+cat prefix.txt B C suffix.txt > RES3
+cat prefix.txt B D suffix.txt > RES4

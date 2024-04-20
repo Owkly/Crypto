@@ -306,3 +306,16 @@ Au nord, on peut accéder à un couloir turquoise.
 ```bash
 [security engine] secret.sharing:136:1|11151834ae00c2537f3b9cea6d43c3d85a3954a981a91c1d9a4f44b469f7bbe1
 ```
+
+
+# flag 21
+
+```bash
+
+```
+
+# flag 22
+
+```bash
+crc64.preimage:136:1|b3d6d924a15e07234560a5864623a795310fb81471120b0b9ca62c73e3783227
+```

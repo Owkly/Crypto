@@ -1,0 +1,27 @@
+[SUDO]>>> lire mode d'emploi
+ChipWhisperer is an open source toolchain that makes learning about
+side-channel attacks easy and affordable. It also serves as a platform for
+performing side-channel research in a well documented, cost-effective, and
+repeatable way. ChipWhisperer is mostly focused on power analysis attacks
+and voltage and clock glitching, which disrupt a device's power supply or
+clock signal to cause unintended behaviour (such as skipping a password
+check).
+
+ChipWhisperer-lite
+------------------
+This entry-level board is preloaded with an application that queries the user
+with some ciphertext and then runs AES-128-CBC decryption.  It is a perfect
+target for students to practice side-channel timing attacks.
+More precisely, the preloaded application takes as input a hex-encoded 
+sequence of bytes.  Its size must be a multiple of 16 (the size of the AES 
+block).  The first block is a 16-byte IV.  There must be at least two blocks
+(IV + >= 1 ciphertext block).
+
+ChipWhisperer-Pro
+-----------------
+This advanced board is preloaded with an application that queries the user
+with some ciphertext and then runs textbook RSA decryption.  The probe on the
+board is preloaded with a procedure that observes the most significant bit
+of the plaintext and leaks it.  In other terms, if the RSA modulus is k-bit
+long (2**(k-1) <= N < 2^k), then the boolean that leaks is
+    (input**d) % N >= 2**(k-1).

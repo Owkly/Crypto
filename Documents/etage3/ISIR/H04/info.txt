@@ -1,0 +1,75 @@
+
+[SUDO]>>> conseil PC
+Non seulement vous devez soumettre un programme RML valide, mais en plus ce
+dernier doit être authentifié.  Par chance, le MAC utilisé a une grosse
+faiblesse.
+
+Le mot-clef est "length extension attack".  Vous ne connaissez pas la clef,
+mais vous disposez d'un message M avec son "tag".  Ceci permet de produire
+soi-même, sans connaître la clef, le "tag" de n'importe quelle message de
+la forme M || S (l'opérateur || désigne la concaténation), où S est un suffixe
+arbitraire.
+
+Une implantation de sha256 en python est disponible à la bibliothèque.
+
+Le code d'authentification de message est :
+
+    tag = H(K || M),
+
+où K est une clef de 16 octets inconnue.  Par contre, M et le tag sont connus.
+La fonction de hachage SHA-256 traite le message par blocs de 64 octets.
+Imaginons donc le découpage :
+
+  bloc 0         bloc 1       bloc 2
+
+KKKMM.....MM | MMM......MMM | MMM......MMM | MM<bloc incomplet>
+ ^
+ |
+clef
+
+La clef occupe le quart du premier bloc.  Le dernier bloc, incomplet, va être
+rempli par le mécanisme de bourrage.  La ruse, c'est qu'on peut prédire ce qui
+va être ajouté au dernier bloc, car on connaît la TAILLE de ce qui est haché.
+
+
+Dans le dernier bloc, P représente le padding, qu'on peut déterminer.
+
+          bloc 0         bloc 1       bloc 2       bloc 3
+
+    KK....KKMM....MM | MMM....MMM | MMM....MMM | MMPPP...PPP
+[IV]               [h_0]        [h_1]        [h_2]          [tag]
+
+Toute la feinte consiste à produire un suffixe S qui commence par le padding :
+
+    S = PPP....PPPSSS..........SSSS
+
+Le calcul de H(K || M || S) devient alors :
+
+    KK....KKMM....MM | ... | MMPPP...PPP | SSS... | ...SSS
+[IV]               [h_0] [h_2]         [tag]    [h_4]     [tag']
+                               ^
+                               |
+                        début du suffixe
+
+On voit alors que le MAC du message "P || S" est [tag'].  Or comme on connaît
+[tag] et S, on peut calculer [tag'].  Il suffit presque de calculer le haché
+de S en remplaçant l'IV de la fonction de hachage par [tag].
+
+
+
+Méfiez-vous cependant que lorsque vous allez essayer de calculer
+
+    tag' = H(S)     avec     IV = tag,
+
+le mécanisme de bourrage va entrer en action. Or pour que
+
+    mac' = H(K || M || P || S),
+
+il faut prendre en compte non-seulement la taille de S dans le bourrage appliqué
+à la fin, mais aussi celles de K, M et P.
+
+
+
+De manière générale, vous avez tout intérêt, pour mettre au point votre code, à
+choisir une clef vous-même pour pouvoir faire des tests et mettre les choses au
+point, avant de vous frotter à la situation où la clef est inconnue.

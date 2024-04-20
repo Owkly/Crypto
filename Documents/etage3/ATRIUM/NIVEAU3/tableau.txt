@@ -1,0 +1,8 @@
+Il est dans un bureau dont les "fenêtres" donnent sur la coursive.
+À travers les vitres, on peut lire son contenu :
+
+  Phase-shift module
+  ------------------
+  item_id = d087a8d80aae600ba2a805439e898b12
+
+	

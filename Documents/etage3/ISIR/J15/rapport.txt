@@ -1,0 +1,14 @@
+l s'agit de quelques notes rapides pour structurer un document récapitulant 
+les activités du laboratoire de recherche sur les dernières années.  C'est une 
+corvée auxquels les chercheurs doivent se plier périodiquement.  En fait, le 
+directeur a prévu une liste de sujets, et compte manifestement utiliser ChatGPT 
+pour remplir les trous !  Voici la liste des items:
+  - Publication d'une nouvelle version du langage RML
+  - Assemblage d'un prototype "Nouvelle Génération" du BiblioDrone
+  - Développement d'un module d'extension qui améliore la survivabilité  
+  - Organisation d'un évènement grand-public ``25 ans de robotique à l'ISIR''
+  - Aménagement de la salle "Zone à Régime Restrictif"
+  - Construction d'un partenariat avec la société XXXXXXXXX pour le développement 
+    de robots autonomes aux capacités avancées (cf. contexte géopolitique 
+    mondial incertain, ...)
+  - Rénovation de la cafétéria et autres mesures pour le bien-être du personnel

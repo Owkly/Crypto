@@ -1,0 +1,77 @@
+[SUDO]>>>  conseil terminal
+Si on essaye de parser tout le bullshit qui s'affiche en mode recovery, on
+doit pouvoir réussir à inférer qu'il y a un utilisateur nommé MKT01 qui a
+un mot de passe (qu'on ne connaît pas).  Le système stocke l'empreinte de
+ce mot de passe calculée avec la fonction "CRC64-ISO".
+
+
+[SUDO]>>>  conseil terminal
+Il faut trouver une préimage pour la fonction CRC64-iso, qui a une sortie 
+de... 64 bits (on aurait pu le deviner !).  Une recherche exhaustive n'est
+pas envisageable, car vous n'avez pas les moyens de faire 2**64 opérations.
+Il va donc falloir "attaquer" la fonction.
+
+
+[SUDO]>>>  conseil terminal
+On peut trouver sur internet DES descriptions (pluriel) de plusieurs
+versions CRC64.  Il y en a même tout un catalogue !  Des modules écrits
+dans différents langages ne calculent pas la même chose, même lorsqu'ils
+sont censés évaluer la même fonction... (soupir).  Toutes les version 
+reposent sur le même principe mais avec des constantes différentes et
+de petites variations ici où là.  La lecture de
+
+      http://www.ross.net/crc/download/crc_v3.txt 
+
+est recommandée.  La fonction qui est utilisée ici ressemble à la version 
+"iso" (définie dans le standard ISO/IEC 3309:1993), mais elle n'est pas
+complètement identique.
+
+
+[SUDO]>>>  conseil terminal
+Voici une description précise de la fonction implantée ici.  L'entrée
+est une chaîne de bits de taille arbitraire, qui est vue comme les
+coefficients d'un polynôme sur GF(2)[x]. Par exemple, 10111 en binaire
+correspond au polynôme x^4 + x^2 + x + 1.  Notons P le polynôme donné
+en entrée.  La sortie de la fonction est une chaîne de 64 bits qui code
+les coefficients de (x^64 * P(x)) % Q(x), où Q(x) est le polynôme
+x^64 + x^4 + x^3 + x + 1.
+
+
+[SUDO]>>>  conseil terminal
+Pour fixer les esprits, l'implantation utilisée par UGLIX est équivalente
+au bout de code suivant :
+        
+        def crc64(m : bytes) -> bytes:
+            i = int.from_bytes(m, byteorder='big')
+            i <<= 64
+            k = i.bit_length()
+            Q = 0x1000000000000001b
+            while k > 64:
+                i ^= Q << (k - 65)
+                k = i.bit_length()
+            return i.to_bytes(8, byteorder='big')
+
+
+[SUDO]>>>  conseil terminal
+On nous impose la sortie de la fonction, qui est un polynôme S(x) de degré
+63.  On veut trouver une entrée P(x) telle que :
+
+        x^64 * P(x) == R(x)*Q(x) + S(x)                                (*)
+
+Autrement dit, S(x) est le reste de la division euclidienne de x^64 P(x)
+par Q(x).
+
+
+[SUDO]>>>  conseil terminal
+Pour s'en sortir, il suffit de travailler "modulo Q(x)".  Comme Q(x) est
+irreductible, l'anneau quotient GF(2)[X] / < Q(x) > est en réalité "le" 
+corps fini à 2**64 éléments.  Là-dedans, l'équation (*) devient
+
+        (x^4 + x^3 + x + 1) * P(x) == S(x)
+
+Comme on est dans un corps, alors (x^4 + x^3 + x + 1) possède un inverse
+(qu'on va noter I(x)).  Il suffit alors de poser P(x) <-- I(x) * S(x).
+
+
+[SUDO]>>>  conseil terminal
+C'est tout !

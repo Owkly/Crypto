@@ -1,0 +1,28 @@
+Salut,
+
+Bon, en fait il y a un gros problème avec le sas pour la nouvelle salle ZRR.
+
+Le stagiaire qui bossait dessus a visiblement très mal compris ce qu'on lui
+avait demandé.  Au lieu de mettre en place un système qui authentifie vraiment
+les utilisateurs agrémentés comme nous en avions discuté, voici ce qu'il a
+fait en réalité (soupir).
+
+L'utilisateur doit saisir non pas une, mais QUATRE données secrètes ---
+parce que, a-t-il osé affirmer avec un grand sourire, c'est ``quatre fois
+plus sûr comme ça''...  Les quatre "clefs" sont à entrer en hexadécimal.
+
+La serrure se déverrouille si les quatres clefs :
+1. sont toutes différentes
+2. commencent par le nom de l'utilisateur
+3. finissent par la chaîne de caractères "h4ckm0d3"
+4. ont toutes la même empreinte par la fonction de hachage MD5
+
+Il semble que cette absurdité viennent d'une grande confusion entre MAC et
+fonction de hachage.  Pour te donner une idée du niveau, le stagiaire a
+conclut sa présentation en bombant le torse et en affirmant crânement que
+(je cite) ``puisque les 4 clefs doivent avoir la même empreinte, le système
+offre 4x plus de résistance à la contrebande''.
+
+Bref, nous allons devoir tout refaire, mais en attendant, c'est comme ça.
+
+Amicalement,

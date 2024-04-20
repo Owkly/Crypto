@@ -1,0 +1,122 @@
+[SUDO]>>> conseil carte électroniques
+Avez-vous essayer de soumettre le challenge lui-même ?
+
+
+[SUDO]>>> conseil carte électroniques
+On a un message chiffré découpé en (n+1) blocs : Y[0], ..., Y[n].
+Il s'agit du chiffrement d'un message clair lui aussi découpé en n blocs,
+notés X[1], ..., X[n].  Le message a été chiffré avec l'AES-128-CBC. Le 
+bourrage standard a été appliqué sur le clair pour obtenir une taille 
+multiple de 128 bits.  Un IV aléatoire de 128 bits a été utilisé lors du 
+chiffrement, et on le note Y[0].
+Toute l'action se concentre sur le dernier bloc. En effet, c'est là que le 
+padding est appliqué.  On rappelle que dans le mode CBC, le dernier bloc du
+clair s'obtient par : X[n] = D(k, Y[n]) ^ Y[n-1], où D(k, ...) est le 
+déchiffrement du block-cipher sous la clef k (inconnue).
+Pour que le message soit correctement déchiffré, il faut que X[n] contienne
+un "padding" valide. Ce signifie que :
+    X[n] = ..............................01
+ou
+    X[n] = ............................0202
+ou
+    X[n] = ..........................030303
+etc.
+
+
+[SUDO]>>> conseil carte électroniques
+Ce dispositif est en fait un "oracle de bourrage" pour le mode CBC : on lui 
+soumet un chiffré arbitraire, il le déchiffre et il nous indique si le 
+bourrage est valide.  Dans un premier temps, on va utiliser cet oracle de 
+bourrage pour récupérer la valeur du dernier octet de X[n].  On forme un 
+message chiffré constitué d'un seul bloc C = Y[n],  et on génère un nouvel 
+IV aléatoire. On envoie (IV, C) à l'oracle de padding.  Le processus de 
+déchiffrement va aboutir à un seul bloc de clair (avec bourrage),  dont la
+valeur est : X_padded = D(k, Y[n]) ^ IV.  À cause du choix aléatoire de l'IV,
+ceci est une valeur aléatoire (en effet, ici l'IV agit comme un "masque 
+jetable").
+
+
+[SUDO]>>> conseil carte électroniques
+Il y a une chance sur 256 que le dernier octet de X_padded soit égal 
+à 0x01, et que le message soit considéré comme valide pour cette raison.
+Il y a une chance sur 256**2 que les deux dernier octets de X_padded soient
+égaux à 0x0202, et que le message soit considéré comme valide pour cette
+raison.  Il y a une chance sur 256**3 que les trois dernier octets de
+X_padded soient égaux à  0x030303, et que le message soit considéré comme
+valide pour cette raison. etc.  La probabilité que le message soit accepté
+par l'oracle est donc :
+    P[oracle accepte] = sum([1 / pow(256, i) for i in range(1, 16)])
+                      = 1/255 à 10^(-34) près
+                      = 0.392%
+À assez peu de choses près, l'oracle acceptera au bout de 255 essais en moyenne.
+
+
+[SUDO]>>> conseil carte électroniques
+En fait, quand l'oracle accepte, le plus probable, d'assez loin, c'est que 
+X_padded finit par 01. Pour les puristes, on peut même calculer la probabilité 
+que ça ait lieu avec la formule de Bayes :
+    P[padding = 01 | oracle accepte] = Prob[oracle accepte | padding = 01] 
+                                       * P[padding = 01] / P[oracle accepte]
+L'oracle accepte toujours quand le padding est 01, donc la première probabilité
+du membre droit vaut 1. La probabilité que le padding soit 01 est 1/256, comme
+on l'a déjà dit. On trouve donc :
+    P[padding = 01 | oracle accepte] = 99.61%.
+
+
+[SUDO]>>> conseil carte électroniques
+Passons sur le calcul des probabilités. Lorsque l'oracle accepte, on est
+quasiment sûr que :
+    X_padded = D(k, Y[n]) ^ IV = ..............................01
+Le dernier octet de D(k, Y[n]) est donc le dernier octet de (X_padded ^ IV).
+Comme on connaît le dernier octet de Y[n-1], dans le "challenge" de départ,
+on peut calculer le dernier octet du dernier bloc de clair (avec padding)
+dans le challenge.
+
+
+[SUDO]>>> conseil carte électroniques
+En toute logique, on va donc tomber sur un octet du padding (on ne doit donc 
+pas voir n'importe quoi, ce qui permet de vérifier si on ne s'est pas trompé).
+
+
+[SUDO]>>> conseil carte électroniques
+La technique qui sert à récupérer le dernier octet du dernier bloc permet 
+en fait de récupérer aussi les autres octets.  Voici comment faire pour 
+récupérer l'avant-dernier.  On suppose qu'on connaît le dernier octet de
+D(k, Y[n]) grâce à la remarque précédente.
+1. on choisit un nouvel IV aléatoire
+2. on modifie le dernier octet de l'IV de telle sorte que :
+    IV ^ D(k, Y[n]) = ..............................02
+3. on envoie le message formé d'un bloc Y[n] à l'oracle, avec cet IV.
+4. si l'oracle accepte, alors on sait que :
+    IV ^ D(k, Y[n]) = ............................0202
+Et de ceci, on peut déduire la valeur de l'avant dernier octet de D(k, Y[n]).
+Ceci permet ensuite facilement de trouver l'avant dernier octet du clair.
+
+
+[SUDO]>>> conseil carte électroniques
+La technique fonctionne de manière similaire pour les autres octets (pour 
+trouver le i-ème en partant de la fin, il faut fixer les (i-1) derniers 
+octets de l'IV à la valeur ``i'').
+
+
+[SUDO]>>> conseil carte électroniques
+Pour déchiffrer le challenge en entier, il faut le déchiffrer bloc par bloc.
+Si vous avez bien suivi le topo précédent, alors vous savez comment déchiffrer 
+le dernier bloc.  Mais en fait cela permet de déchiffrer un bloc arbitraire,
+et ceci permet donc de mettre en oeuvre le déchiffrement CBC "normal".
+
+
+[SUDO]>>> conseil carte électroniques
+Quelques petites remarques pour conclure.
+- Le dernier bloc contient le padding. Il faudra le retirer pour produire
+  le message original.
+- Vous avez intérêt à stocker les blocs de clair au fur-et-à-mesure qu'ils
+  sont déchiffrés. On ne sait jamais ce qui peut arriver, et ça vous permettra
+  de reprendre l'attaque là où elle s'est interrompue, le cas échéant.
+- Pour le premier bloc, on ne peut pas complètement s'y prendre de la même
+  façon, car il n'y a pas de bloc "précédent". Mais en fait, c'est alors 
+  l'IV qui joue ce rôle-là.
+
+
+[SUDO]>>> conseil carte électroniques
+C'est tout !
