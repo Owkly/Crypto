@@ -1,3 +1,18 @@
+# TME #4 : somme de carrés
+# ========================
+
+# Difficulté : ******
+
+
+# But     : écrire un entier p premier (congru à 1 mod 4) comme p == a**2 + b**2.
+
+# p = da6ca7ff040bcb32fb4e7133c61afd958a481aa4273baa2c55be0f17212c3a000081f06f7595cf284e8f42dd6058c5dea17363c486a5a8d80e85e00a2dd46babf92df954c177bc9c385ab4a990ad4d121c20531b31fe06c1f0c5a9ca006a772189f4ec8258b224c3c64683bda1c983fc22fe464d6c5e17e6830680355282505d
+
+#                     a :                                                         
+#                     b :                                                         
+
+
+
 def mods(a, n):
     """ Normalise a pour être entre -n/2 et n/2. """
     a = a % n

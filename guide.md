@@ -319,3 +319,15 @@ Au nord, on peut accéder à un couloir turquoise.
 ```bash
 crc64.preimage:136:1|b3d6d924a15e07234560a5864623a795310fb81471120b0b9ca62c73e3783227
 ```
+
+# flag 23
+
+```bash
+[security engine] tme.squares:136:1|3d7396848242be53c8f2dc3e3bf20d07a5105996a507a92b9fec77171dd43179
+```
+
+# flag 24
+
+```bash
+[security engine] tme.pratt:136:1|79e5814585020d25508f3d17032af456bcb0de513d1a7095209e69c7be7db791
+```
