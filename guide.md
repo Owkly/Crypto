@@ -331,3 +331,9 @@ crc64.preimage:136:1|b3d6d924a15e07234560a5864623a795310fb81471120b0b9ca62c73e37
 ```bash
 [security engine] tme.pratt:136:1|79e5814585020d25508f3d17032af456bcb0de513d1a7095209e69c7be7db791
 ```
+
+# flag 25
+
+```bash
+[security engine] multicollision:136:1|b4680b9c950b154f420b67d32e6a2303d51df6782fe4779e85934fa0c4ce9dc0
+```
