@@ -20,5 +20,6 @@ secret.sharing:136:1|11151834ae00c2537f3b9cea6d43c3d85a3954a981a91c1d9a4f44b469f
 crc64.preimage:136:1|b3d6d924a15e07234560a5864623a795310fb81471120b0b9ca62c73e3783227             Yannick           2024-20-20 11:44:19
 tme.squares:136:1|3d7396848242be53c8f2dc3e3bf20d07a5105996a507a92b9fec77171dd43179                Yannick           2024-21-21 12:15:56
 tme.pratt:136:1|79e5814585020d25508f3d17032af456bcb0de513d1a7095209e69c7be7db791                  Yannick           2024-21-21 17:21:03
+multicollision:136:1|b4680b9c950b154f420b67d32e6a2303d51df6782fe4779e85934fa0c4ce9dc0             Yannick           2024-23-23 08:46:38
 pki.cert:136:1|c8ad30faa28983690a3b96f26e2a9b631e328988db0ac4bef62e3a7ff5300a25                   Yannick           2024-26-26 16:04:10
 rsa.keygen:136:1|940e6ea8d01a14159b3dfeae0a6ae9be1a3a67e4d2fc2a9efeb820b57b8cf279                 Yannick           2024-26-26 17:18:59

@@ -6,9 +6,9 @@
 # Il faut donc implanter la reconstruction de partage de secret de Shamir.
 
 # Cela peut se faire de deux manières : soit avec les polynômes interpolateurs
-# de Lagrange, soit en résolvant un système linéaire.  Dans les deux cas,
+# de Lagrange, soit en résolvant un système linéaire.  Dans les deux clist_A,
 # l'utilisation d'un logiciel de calcul formel (comme SageMath) est fortement
-# recommandée.  Il n'y a pas beaucoup de bibliothèques python capable de faire
+# recommandée.  Il n'y a plist_A beaucoup de bibliothèques python capable de faire
 # le job directement.
 
 
@@ -39,7 +39,12 @@ flags_mac = [
 	"9fc13dd9e754286d8400c703ba2722e45332a93fbff95c373659412c91f164b5",
 	"1d6ecac5a77ce5a6451f1a916915316c801975402b4fcbf5dde8c440aa132bf5",
 	"c8ad30faa28983690a3b96f26e2a9b631e328988db0ac4bef62e3a7ff5300a25",
-	"940e6ea8d01a14159b3dfeae0a6ae9be1a3a67e4d2fc2a9efeb820b57b8cf279"
+	"940e6ea8d01a14159b3dfeae0a6ae9be1a3a67e4d2fc2a9efeb820b57b8cf279",
+	"11151834ae00c2537f3b9cea6d43c3d85a3954a981a91c1d9a4f44b469f7bbe1",
+	"b3d6d924a15e07234560a5864623a795310fb81471120b0b9ca62c73e3783227",
+	"3d7396848242be53c8f2dc3e3bf20d07a5105996a507a92b9fec77171dd43179",
+	"79e5814585020d25508f3d17032af456bcb0de513d1a7095209e69c7be7db791",
+	"b4680b9c950b154f420b67d32e6a2303d51df6782fe4779e85934fa0c4ce9dc0"
 ]
 
 
@@ -50,34 +55,37 @@ def hex_to_bin(hex_string):
     bin_string = bin(int(hex_string, 16))[2:].zfill(len(hex_string)*4)
     return bin_string
 
-def extract_X_A_B_from_MAC(mac):
+def extract_X_A_B_C_from_MAC(mac):
     # Convertit le MAC en binaire
     mac_bin = hex_to_bin(mac)
-    # Extrait X, A, et B en utilisant la séquence binaire
+    # Extrait X, A, B et C en utilisant la séquence binaire
     X_bin = mac_bin[0:64]
     A_bin = mac_bin[64:128]
     B_bin = mac_bin[128:192]
+    C_bin = mac_bin[192:256]
     # Convertit les binaires en entiers
     X = int(X_bin, 2)
     A = int(A_bin, 2)
     B = int(B_bin, 2)
-    return X, A, B
+    C = int(C_bin, 2)
+    return X, A, B, C
 
+# Listes pour stocker les valeurs X, A, B, et C extraites
+list_X = []
+list_A = []
+list_B = []
+list_C = []
 
-
-# Listes pour stocker les valeurs X, A et B extraites
-Xs = []
-As = []
-Bs = []
-
-# Boucle sur les MACs pour extraire X, A et B
+# Boucle sur les MACs pour extraire X, A, B et C
 for mac in flags_mac:
-    X, A, B = extract_X_A_B_from_MAC(mac)
-    Xs.append(X)
-    As.append(A)
-    Bs.append(B)
+    X, A, B, C = extract_X_A_B_C_from_MAC(mac)
+    list_X.append(X)
+    list_A.append(A)
+    list_B.append(B)
+    list_C.append(C)
 
-# Affiche les listes Xs, As et Bs
-print("Xs=", Xs)
-print("As=", As)
-print("Bs=", Bs)
+# Affiche les listes X, A, B et C
+print("X=", list_X)
+print("A=", list_A)
+print("B=", list_B)
+print("C=", list_C)
